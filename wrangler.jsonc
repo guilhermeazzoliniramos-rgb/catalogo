@@ -1,0 +1,18 @@
+{
+  "name": "catalogo",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-18",
+
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gs-soldas",
+      "database_id": "708d13a2-890b-4d26-b7bb-0050e8705e1d"
+    }
+  ]
+}
