@@ -3,323 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Catálogo de Produtos</title>
+<title>GS SOLDAS - Catálogo</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+    color:#20262d
 }
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f2f4f6;
-    color: #20262d;
+header{
+    background:#20262d;
+    color:white;
+    padding:20px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center
 }
 
-/* CABEÇALHO */
-
-header {
-    background: #20262d;
-    color: white;
-    padding: 20px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.logo{
+    font-size:23px;
+    font-weight:bold
 }
 
-.logo {
-    font-size: 21px;
-    font-weight: bold;
+.logo span{
+    display:block;
+    font-size:11px;
+    color:#aaa;
+    margin-top:4px
 }
 
-.logo span {
-    display: block;
-    font-size: 11px;
-    color: #aeb6bd;
-    margin-top: 4px;
+button{
+    border:0;
+    border-radius:8px;
+    padding:11px 16px;
+    font-weight:bold;
+    cursor:pointer
 }
 
-button {
-    border: none;
-    border-radius: 8px;
-    padding: 11px 16px;
-    font-weight: bold;
-    cursor: pointer;
+.admin{
+    background:white;
+    color:#20262d
 }
 
-.admin-button {
-    background: white;
-    color: #20262d;
+.primary{
+    background:#e86b20;
+    color:white
 }
 
-.primary {
-    background: #e86b20;
-    color: white;
+.danger{
+    background:#ffe0e0;
+    color:#a00000
 }
 
-.danger {
-    background: #ffe0e0;
-    color: #a00000;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto
 }
 
-/* CONTEÚDO */
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.hero{
+    padding:40px 0 20px
 }
 
-.hero {
-    padding: 35px 0 15px;
+.hero h1{
+    margin:0 0 8px;
+    font-size:34px
 }
 
-.hero h1 {
-    margin: 0 0 8px;
-    font-size: 32px;
+.hero p{
+    color:#69747d
 }
 
-.hero p {
-    color: #69747d;
+.search{
+    width:100%;
+    padding:15px;
+    border:1px solid #d5dbe0;
+    border-radius:10px;
+    font-size:15px;
+    margin:20px 0
 }
 
-/* PESQUISA */
-
-.search {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #d8dee3;
-    border-radius: 10px;
-    font-size: 15px;
-    margin: 20px 0;
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:25px
 }
 
-/* CATEGORIAS */
-
-.filters {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
+.filter{
+    background:white;
+    border:1px solid #d5dbe0
 }
 
-.filter {
-    background: white;
-    border: 1px solid #d8dee3;
+.filter.active{
+    background:#20262d;
+    color:white
 }
 
-.filter.active {
-    background: #20262d;
-    color: white;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+    padding-bottom:40px
 }
 
-/* PRODUTOS */
-
-.grid {
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fill, minmax(240px, 1fr));
-    gap: 18px;
+.card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #e0e4e8;
+    cursor:pointer;
+    transition:.2s
 }
 
-.card {
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid #e0e4e8;
-    cursor: pointer;
-    transition: .2s;
+.card:hover{
+    transform:translateY(-4px)
 }
 
-.card:hover {
-    transform: translateY(-3px);
+.image{
+    height:190px;
+    background:#e9edf0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#89939b
 }
 
-.product-image {
-    height: 180px;
-    background: #e9edf0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #89939b;
+.image img{
+    width:100%;
+    height:100%;
+    object-fit:cover
 }
 
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.content{
+    padding:17px
 }
 
-.card-content {
-    padding: 16px;
+.category{
+    color:#e86b20;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase
 }
 
-.category {
-    color: #e86b20;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
+.content h3{
+    margin:7px 0
 }
 
-.card h3 {
-    margin: 7px 0;
+.muted{
+    color:#69747d;
+    font-size:13px
 }
 
-.muted {
-    color: #69747d;
-    font-size: 13px;
+.empty{
+    background:white;
+    border:1px dashed #ccd3d9;
+    border-radius:14px;
+    padding:60px 20px;
+    text-align:center;
+    margin-bottom:40px
 }
 
-/* VAZIO */
-
-.empty {
-    background: white;
-    border: 1px dashed #ccd3d9;
-    border-radius: 14px;
-    padding: 60px 20px;
-    text-align: center;
-    color: #69747d;
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:20;
+    padding:20px;
+    overflow:auto
 }
 
-/* MODAIS */
-
-.overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.65);
-    z-index: 10;
-    padding: 25px;
-    overflow-y: auto;
+.modal{
+    background:white;
+    max-width:760px;
+    margin:30px auto;
+    border-radius:15px;
+    padding:25px
 }
 
-.modal {
-    background: white;
-    max-width: 760px;
-    margin: 30px auto;
-    border-radius: 15px;
-    padding: 25px;
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px
 }
 
-.modal-header h2 {
-    margin: 0;
+.field{
+    margin-bottom:15px
 }
 
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.field {
-    margin-bottom: 15px;
-}
-
-.field label {
-    display: block;
-    font-weight: bold;
-    font-size: 13px;
-    margin-bottom: 6px;
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px
 }
 
 .field input,
-.field textarea,
-.field select {
-    width: 100%;
-    padding: 11px;
-    border: 1px solid #d7dde2;
-    border-radius: 8px;
-    font-family: inherit;
+.field textarea{
+    width:100%;
+    padding:11px;
+    border:1px solid #d7dde2;
+    border-radius:8px;
+    font-family:inherit
 }
 
-.field textarea {
-    min-height: 100px;
-    resize: vertical;
+.field textarea{
+    min-height:100px;
+    resize:vertical
 }
 
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 20px;
+.actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px
 }
 
-/* ADMIN */
-
-.admin-item {
-    border: 1px solid #dce1e5;
-    border-radius: 10px;
-    padding: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+.admin-item{
+    border:1px solid #dce1e5;
+    border-radius:10px;
+    padding:14px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:10px
 }
 
-.admin-actions {
-    display: flex;
-    gap: 6px;
+.admin-actions{
+    display:flex;
+    gap:6px
 }
 
-/* DETALHES */
-
-.detail-image {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background: #eef1f3;
-    border-radius: 10px;
-    margin: 15px 0;
+.detail-image{
+    width:100%;
+    max-height:350px;
+    object-fit:contain;
+    background:#eef1f3;
+    border-radius:10px;
+    margin:15px 0
 }
 
-.specs {
-    width: 100%;
-    border-collapse: collapse;
+.specs{
+    width:100%;
+    border-collapse:collapse
 }
 
-.specs td {
-    border-bottom: 1px solid #e1e5e8;
-    padding: 10px;
+.specs td{
+    padding:10px;
+    border-bottom:1px solid #e1e5e8
 }
 
-.specs td:first-child {
-    font-weight: bold;
-    width: 35%;
+.specs td:first-child{
+    font-weight:bold;
+    width:35%
 }
 
-/* MOBILE */
+@media(max-width:650px){
 
-@media(max-width:650px) {
-
-    header {
-        padding: 16px 5%;
+    header{
+        padding:16px 5%
     }
 
-    .hero h1 {
-        font-size: 26px;
+    .hero h1{
+        font-size:27px
     }
 
-    .row {
-        grid-template-columns: 1fr;
+    .row{
+        grid-template-columns:1fr
     }
 
-    .modal {
-        margin: 5px auto;
-        padding: 18px;
-    }
-
-    .admin-item {
-        align-items: flex-start;
-        flex-direction: column;
+    .admin-item{
+        flex-direction:column
     }
 }
 </style>
@@ -329,1033 +293,941 @@ button {
 
 <header>
 
-    <div class="logo">
-        CATÁLOGO
-        <span>Produtos e especificações</span>
-    </div>
+<div class="logo">
+GS SOLDAS
+<span>Produtos e especificações</span>
+</div>
 
-    <button class="admin-button" onclick="abrirAdmin()">
-        ⚙ Administração
-    </button>
+<button class="admin" onclick="abrirAdmin()">
+⚙ Administração
+</button>
 
 </header>
 
-
 <main class="container">
 
-    <section class="hero">
+<section class="hero">
 
-        <h1>Catálogo de Produtos</h1>
+<h1>Catálogo de Produtos</h1>
 
-        <p>
-            Consulte produtos, imagens e especificações.
-        </p>
+<p>
+Consulte nossos produtos e suas especificações.
+</p>
 
-        <input
-            id="pesquisa"
-            class="search"
-            placeholder="🔎 Pesquisar produto, marca ou código..."
-            oninput="mostrarProdutos()"
-        >
+<input
+id="pesquisa"
+class="search"
+placeholder="🔎 Pesquisar produto, marca ou código..."
+oninput="mostrarProdutos()"
+>
 
-        <div id="filtros" class="filters"></div>
+<div id="filtros" class="filters"></div>
 
-    </section>
+</section>
 
-    <section id="catalogo"></section>
+<section id="catalogo"></section>
 
 </main>
 
 
-<!-- ================= ADMIN ================= -->
-
 <div id="adminOverlay" class="overlay">
 
-    <div class="modal">
+<div class="modal">
 
-        <div class="modal-header">
+<div class="modal-header">
 
-            <h2>Administração</h2>
+<h2>Administração</h2>
 
-            <button onclick="fecharAdmin()">✕</button>
-
-        </div>
-
-        <p class="muted">
-            Cadastre e edite os produtos do catálogo.
-        </p>
-
-        <button
-            class="primary"
-            onclick="novoProduto()"
-        >
-            ＋ Novo produto
-        </button>
-
-        <div
-            id="listaAdmin"
-            style="margin-top:20px"
-        ></div>
-
-    </div>
+<button onclick="fecharAdmin()">✕</button>
 
 </div>
 
+<br>
 
-<!-- ================= FORMULÁRIO ================= -->
+<button class="primary" onclick="novoProduto()">
+＋ Novo produto
+</button>
+
+<div id="listaAdmin"></div>
+
+</div>
+
+</div>
+
 
 <div id="formOverlay" class="overlay">
 
-    <div class="modal">
+<div class="modal">
 
-        <div class="modal-header">
+<div class="modal-header">
 
-            <h2 id="tituloFormulario">
-                Novo produto
-            </h2>
+<h2 id="tituloFormulario">
+Novo produto
+</h2>
 
-            <button onclick="fecharFormulario()">
-                ✕
-            </button>
+<button onclick="fecharFormulario()">✕</button>
 
-        </div>
+</div>
 
-        <input
-            type="hidden"
-            id="produtoId"
-        >
+<input type="hidden" id="produtoId">
 
-        <div class="row">
+<br>
 
-            <div class="field">
+<div class="row">
 
-                <label>
-                    Nome do produto *
-                </label>
+<div class="field">
 
-                <input
-                    id="nome"
-                    placeholder="Ex.: Primer PU"
-                >
+<label>Nome do produto *</label>
 
-            </div>
+<input id="nome" placeholder="Ex.: Primer PU">
 
+</div>
 
-            <div class="field">
+<div class="field">
 
-                <label>
-                    Código
-                </label>
+<label>Código</label>
 
-                <input
-                    id="codigo"
-                    placeholder="Ex.: PR-001"
-                >
+<input id="codigo" placeholder="Ex.: PR-001">
 
-            </div>
-
-        </div>
-
-
-        <div class="row">
-
-            <div class="field">
-
-                <label>
-                    Categoria
-                </label>
-
-                <input
-                    id="categoria"
-                    list="categorias"
-                    placeholder="Ex.: Pintura Automotiva"
-                >
-
-                <datalist id="categorias"></datalist>
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Marca
-                </label>
-
-                <input id="marca">
-
-            </div>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                Descrição
-            </label>
-
-            <textarea
-                id="descricao"
-                placeholder="Descrição do produto..."
-            ></textarea>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                Especificações
-            </label>
-
-            <textarea
-                id="especificacoes"
-                placeholder="Uma especificação por linha:
-
-Volume: 900 ml
-Acabamento: Fosco
-Aplicação: Automotiva"
-            ></textarea>
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                URL da imagem
-            </label>
-
-            <input
-                id="imagem"
-                placeholder="https://..."
-            >
-
-        </div>
-
-
-        <div class="actions">
-
-            <button onclick="fecharFormulario()">
-                Cancelar
-            </button>
-
-            <button
-                class="primary"
-                onclick="salvarProduto()"
-            >
-                Salvar produto
-            </button>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- ================= DETALHES ================= -->
+<div class="row">
+
+<div class="field">
+
+<label>Categoria</label>
+
+<input id="categoria" placeholder="Ex.: Pintura Automotiva">
+
+</div>
+
+<div class="field">
+
+<label>Marca</label>
+
+<input id="marca">
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>Descrição</label>
+
+<textarea id="descricao"></textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>Especificações</label>
+
+<textarea
+id="especificacoes"
+placeholder="Volume: 900 ml
+Acabamento: Fosco
+Aplicação: Automotiva"
+></textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>URL da imagem</label>
+
+<input
+id="imagem"
+placeholder="https://..."
+>
+
+</div>
+
+
+<div class="actions">
+
+<button onclick="fecharFormulario()">
+Cancelar
+</button>
+
+<button class="primary" onclick="salvarProduto()">
+Salvar produto
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 
 <div id="detalhesOverlay" class="overlay">
 
-    <div
-        class="modal"
-        id="detalhes"
-    ></div>
+<div class="modal" id="detalhes"></div>
 
 </div>
 
 
 <script>
 
-/* ==========================================
-   BANCO LOCAL
-========================================== */
+let produtos=[];
 
-const CHAVE =
-    "catalogo_produtos_v1";
-
-let produtos =
-    JSON.parse(
-        localStorage.getItem(CHAVE) || "[]"
-    );
-
-let categoriaAtual = "Todos";
+let categoriaAtual="Todos";
 
 
-/* ==========================================
-   SALVAR
-========================================== */
+async function carregarProdutos(){
 
-function salvarBanco() {
+try{
 
-    localStorage.setItem(
-        CHAVE,
-        JSON.stringify(produtos)
-    );
+const resposta=await fetch("/api/produtos");
+
+if(!resposta.ok){
+
+throw new Error();
 
 }
 
-
-/* ==========================================
-   ESCAPAR HTML
-========================================== */
-
-function escapar(texto = "") {
-
-    return texto.replace(
-        /[&<>"']/g,
-
-        caractere => ({
-
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-
-        }[caractere])
-
-    );
-
-}
-
-
-/* ==========================================
-   CATEGORIAS
-========================================== */
-
-function obterCategorias() {
-
-    return [
-        ...new Set(
-            produtos
-                .map(p => p.categoria)
-                .filter(Boolean)
-        )
-    ].sort();
-
-}
-
-
-/* ==========================================
-   FILTROS
-========================================== */
-
-function mostrarFiltros() {
-
-    const categorias =
-        ["Todos", ...obterCategorias()];
-
-    document.getElementById("filtros")
-        .innerHTML = categorias.map(categoria => `
-
-            <button
-                class="filter
-                ${categoria === categoriaAtual
-                    ? "active"
-                    : ""}"
-                onclick='
-                    categoriaAtual =
-                    ${JSON.stringify(categoria)};
-                    mostrarProdutos();
-                '
-            >
-
-                ${escapar(categoria)}
-
-            </button>
-
-        `).join("");
-
-}
-
-
-/* ==========================================
-   CATÁLOGO
-========================================== */
-
-function mostrarProdutos() {
-
-    mostrarFiltros();
-
-    const pesquisa =
-        document
-        .getElementById("pesquisa")
-        .value
-        .toLowerCase();
-
-
-    const lista =
-        produtos.filter(produto => {
-
-            const categoriaOK =
-                categoriaAtual === "Todos" ||
-                produto.categoria === categoriaAtual;
-
-            const texto =
-                [
-
-                    produto.nome,
-                    produto.marca,
-                    produto.codigo,
-                    produto.categoria,
-                    produto.descricao
-
-                ]
-                .join(" ")
-                .toLowerCase();
-
-
-            return categoriaOK &&
-                   texto.includes(pesquisa);
-
-        });
-
-
-    const catalogo =
-        document.getElementById("catalogo");
-
-
-    if (lista.length === 0) {
-
-        catalogo.innerHTML = `
-
-            <div class="empty">
-
-                <strong>
-                    Nenhum produto cadastrado.
-                </strong>
-
-                <br><br>
-
-                Abra
-                <b>⚙ Administração</b>
-                para adicionar o primeiro produto.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    catalogo.innerHTML = `
-
-        <div class="grid">
-
-            ${lista.map(produto => `
-
-                <article
-                    class="card"
-                    onclick="abrirDetalhes('${produto.id}')"
-                >
-
-                    <div class="product-image">
-
-                        ${
-                            produto.imagem
-
-                            ?
-
-                            `<img
-                                src="${escapar(produto.imagem)}"
-                                alt="${escapar(produto.nome)}"
-                            >`
-
-                            :
-
-                            "Sem imagem"
-                        }
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="category">
-
-                            ${escapar(
-                                produto.categoria ||
-                                "Sem categoria"
-                            )}
-
-                        </div>
-
-
-                        <h3>
-                            ${escapar(produto.nome)}
-                        </h3>
-
-
-                        <div class="muted">
-
-                            ${escapar(
-                                produto.marca || ""
-                            )}
-
-                            ${
-                                produto.codigo
-                                ? " • " +
-                                  escapar(produto.codigo)
-                                : ""
-                            }
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            `).join("")}
-
-        </div>
-
-    `;
-
-}
-
-
-/* ==========================================
-   ADMIN
-========================================== */
-
-function abrirAdmin() {
-
-    mostrarListaAdmin();
-
-    document.getElementById(
-        "adminOverlay"
-    ).style.display = "block";
-
-}
-
-
-function fecharAdmin() {
-
-    document.getElementById(
-        "adminOverlay"
-    ).style.display = "none";
-
-}
-
-
-/* ==========================================
-   LISTA ADMIN
-========================================== */
-
-function mostrarListaAdmin() {
-
-    const lista =
-        document.getElementById(
-            "listaAdmin"
-        );
-
-
-    if (!produtos.length) {
-
-        lista.innerHTML = `
-
-            <div class="empty">
-
-                Nenhum produto cadastrado.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    lista.innerHTML = produtos.map(produto => `
-
-        <div class="admin-item">
-
-            <div>
-
-                <strong>
-                    ${escapar(produto.nome)}
-                </strong>
-
-                <div class="muted">
-
-                    ${escapar(
-                        produto.categoria ||
-                        "Sem categoria"
-                    )}
-
-                    ${
-                        produto.codigo
-                        ? " • " +
-                          escapar(produto.codigo)
-                        : ""
-                    }
-
-                </div>
-
-            </div>
-
-
-            <div class="admin-actions">
-
-                <button
-                    onclick="editarProduto('${produto.id}')"
-                >
-                    ✏️ Editar
-                </button>
-
-                <button
-                    class="danger"
-                    onclick="excluirProduto('${produto.id}')"
-                >
-                    🗑️ Excluir
-                </button>
-
-            </div>
-
-        </div>
-
-    `).join("");
-
-}
-
-
-/* ==========================================
-   NOVO PRODUTO
-========================================== */
-
-function novoProduto() {
-
-    abrirFormulario({
-
-        id: crypto.randomUUID(),
-
-        nome: "",
-        codigo: "",
-        categoria: "",
-        marca: "",
-        descricao: "",
-        especificacoes: "",
-        imagem: ""
-
-    });
-
-}
-
-
-/* ==========================================
-   FORMULÁRIO
-========================================== */
-
-function abrirFormulario(produto) {
-
-    document.getElementById(
-        "produtoId"
-    ).value = produto.id;
-
-
-    document.getElementById(
-        "tituloFormulario"
-    ).textContent =
-        produto.nome
-        ? "Editar produto"
-        : "Novo produto";
-
-
-    document.getElementById("nome").value =
-        produto.nome || "";
-
-    document.getElementById("codigo").value =
-        produto.codigo || "";
-
-    document.getElementById("categoria").value =
-        produto.categoria || "";
-
-    document.getElementById("marca").value =
-        produto.marca || "";
-
-    document.getElementById("descricao").value =
-        produto.descricao || "";
-
-    document.getElementById("especificacoes").value =
-        produto.especificacoes || "";
-
-    document.getElementById("imagem").value =
-        produto.imagem || "";
-
-
-    document.getElementById(
-        "formOverlay"
-    ).style.display = "block";
-
-
-    atualizarCategoriasFormulario();
-
-}
-
-
-function fecharFormulario() {
-
-    document.getElementById(
-        "formOverlay"
-    ).style.display = "none";
-
-}
-
-
-/* ==========================================
-   CATEGORIAS DO FORMULÁRIO
-========================================== */
-
-function atualizarCategoriasFormulario() {
-
-    document.getElementById(
-        "categorias"
-    ).innerHTML = obterCategorias()
-        .map(categoria => `
-
-            <option
-                value="${escapar(categoria)}"
-            >
-
-        `)
-        .join("");
-
-}
-
-
-/* ==========================================
-   SALVAR PRODUTO
-========================================== */
-
-function salvarProduto() {
-
-    const id =
-        document.getElementById(
-            "produtoId"
-        ).value;
-
-
-    const nome =
-        document.getElementById(
-            "nome"
-        ).value.trim();
-
-
-    if (!nome) {
-
-        alert(
-            "Informe o nome do produto."
-        );
-
-        return;
-
-    }
-
-
-    const produto = {
-
-        id,
-
-        nome,
-
-        codigo:
-            document.getElementById(
-                "codigo"
-            ).value.trim(),
-
-        categoria:
-            document.getElementById(
-                "categoria"
-            ).value.trim(),
-
-        marca:
-            document.getElementById(
-                "marca"
-            ).value.trim(),
-
-        descricao:
-            document.getElementById(
-                "descricao"
-            ).value.trim(),
-
-        especificacoes:
-            document.getElementById(
-                "especificacoes"
-            ).value.trim(),
-
-        imagem:
-            document.getElementById(
-                "imagem"
-            ).value.trim()
-
-    };
-
-
-    const indice =
-        produtos.findIndex(
-            p => p.id === id
-        );
-
-
-    if (indice >= 0) {
-
-        produtos[indice] = produto;
-
-    } else {
-
-        produtos.push(produto);
-
-    }
-
-
-    salvarBanco();
-
-    fecharFormulario();
-
-    mostrarListaAdmin();
-
-    mostrarProdutos();
-
-}
-
-
-/* ==========================================
-   EDITAR
-========================================== */
-
-function editarProduto(id) {
-
-    const produto =
-        produtos.find(
-            p => p.id === id
-        );
-
-
-    if (produto) {
-
-        abrirFormulario(produto);
-
-    }
-
-}
-
-
-/* ==========================================
-   EXCLUIR
-========================================== */
-
-function excluirProduto(id) {
-
-    if (
-        !confirm(
-            "Tem certeza que deseja excluir este produto?"
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    produtos =
-        produtos.filter(
-            p => p.id !== id
-        );
-
-
-    salvarBanco();
-
-    mostrarListaAdmin();
-
-    mostrarProdutos();
-
-}
-
-
-/* ==========================================
-   DETALHES DO PRODUTO
-========================================== */
-
-function abrirDetalhes(id) {
-
-    const produto =
-        produtos.find(
-            p => p.id === id
-        );
-
-
-    if (!produto) return;
-
-
-    const especificacoes =
-        (produto.especificacoes || "")
-        .split("\n")
-        .filter(Boolean);
-
-
-    const tabela =
-        especificacoes.map(linha => {
-
-            const partes =
-                linha.split(":");
-
-            const nome =
-                partes.shift();
-
-            const valor =
-                partes.join(":");
-
-
-            return `
-
-                <tr>
-
-                    <td>
-                        ${escapar(nome)}
-                    </td>
-
-                    <td>
-                        ${escapar(valor)}
-                    </td>
-
-                </tr>
-
-            `;
-
-        }).join("");
-
-
-    document.getElementById(
-        "detalhes"
-    ).innerHTML = `
-
-        <div class="modal-header">
-
-            <h2>
-                ${escapar(produto.nome)}
-            </h2>
-
-            <button
-                onclick="
-                    document.getElementById(
-                        'detalhesOverlay'
-                    ).style.display='none'
-                "
-            >
-                ✕
-            </button>
-
-        </div>
-
-
-        ${
-            produto.imagem
-
-            ?
-
-            `<img
-                class="detail-image"
-                src="${escapar(produto.imagem)}"
-                alt="${escapar(produto.nome)}"
-            >`
-
-            :
-
-            `<div
-                class="product-image"
-                style="height:300px"
-            >
-                Sem imagem
-            </div>`
-
-        }
-
-
-        <p class="muted">
-
-            ${escapar(
-                produto.categoria || ""
-            )}
-
-            ${
-                produto.marca
-                ? " • " +
-                  escapar(produto.marca)
-                : ""
-            }
-
-            ${
-                produto.codigo
-                ? " • " +
-                  escapar(produto.codigo)
-                : ""
-            }
-
-        </p>
-
-
-        <h3>
-            Descrição
-        </h3>
-
-        <p>
-
-            ${escapar(
-                produto.descricao ||
-                "Nenhuma descrição cadastrada."
-            )}
-
-        </p>
-
-
-        ${
-            tabela
-
-            ?
-
-            `
-
-            <h3>
-                Especificações
-            </h3>
-
-            <table class="specs">
-
-                <tbody>
-
-                    ${tabela}
-
-                </tbody>
-
-            </table>
-
-            `
-
-            : ""
-
-        }
-
-    `;
-
-
-    document.getElementById(
-        "detalhesOverlay"
-    ).style.display = "block";
-
-}
-
-
-/* ==========================================
-   INICIAR
-========================================== */
+produtos=await resposta.json();
 
 mostrarProdutos();
+
+mostrarListaAdmin();
+
+}catch(error){
+
+document.getElementById("catalogo").innerHTML=`
+
+<div class="empty">
+
+<strong>
+Não foi possível carregar os produtos.
+</strong>
+
+<br><br>
+
+A API ainda não está configurada.
+
+</div>
+
+`;
+
+}
+
+}
+
+
+function escapar(texto=""){
+
+return String(texto).replace(
+/[&<>"']/g,
+
+caractere=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+
+}[caractere])
+
+);
+
+}
+
+
+function obterCategorias(){
+
+return [
+
+"Todos",
+
+...new Set(
+
+produtos
+.map(p=>p.categoria)
+.filter(Boolean)
+
+)
+
+];
+
+}
+
+
+function mostrarFiltros(){
+
+document.getElementById("filtros").innerHTML=
+
+obterCategorias().map(categoria=>`
+
+<button
+class="filter ${
+categoria===categoriaAtual
+?"active":""
+}"
+onclick='categoriaAtual=${JSON.stringify(categoria)};mostrarProdutos()'
+>
+
+${escapar(categoria)}
+
+</button>
+
+`).join("");
+
+}
+
+
+function mostrarProdutos(){
+
+mostrarFiltros();
+
+const pesquisa=
+document
+.getElementById("pesquisa")
+.value
+.toLowerCase();
+
+
+const lista=produtos.filter(produto=>{
+
+const categoriaOK=
+categoriaAtual==="Todos" ||
+produto.categoria===categoriaAtual;
+
+
+const texto=[
+
+produto.nome,
+produto.marca,
+produto.codigo,
+produto.categoria,
+produto.descricao
+
+].join(" ").toLowerCase();
+
+
+return categoriaOK &&
+texto.includes(pesquisa);
+
+});
+
+
+if(!lista.length){
+
+document.getElementById("catalogo").innerHTML=`
+
+<div class="empty">
+
+<strong>
+Nenhum produto cadastrado.
+</strong>
+
+<br><br>
+
+Abra ⚙ Administração para adicionar um produto.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+document.getElementById("catalogo").innerHTML=`
+
+<div class="grid">
+
+${lista.map(produto=>`
+
+<article
+class="card"
+onclick="abrirDetalhes(${produto.id})"
+>
+
+<div class="image">
+
+${
+produto.imagem
+
+?
+
+`<img
+src="${escapar(produto.imagem)}"
+alt="${escapar(produto.nome)}"
+>`
+
+:
+
+"Sem imagem"
+
+}
+
+</div>
+
+
+<div class="content">
+
+<div class="category">
+
+${escapar(
+produto.categoria ||
+"Sem categoria"
+)}
+
+</div>
+
+
+<h3>
+
+${escapar(produto.nome)}
+
+</h3>
+
+
+<div class="muted">
+
+${escapar(produto.marca||"")}
+
+${
+produto.codigo
+?
+" • "+escapar(produto.codigo)
+:""
+}
+
+</div>
+
+</div>
+
+</article>
+
+`).join("")}
+
+</div>
+
+`;
+
+}
+
+
+function abrirAdmin(){
+
+document.getElementById(
+"adminOverlay"
+).style.display="block";
+
+mostrarListaAdmin();
+
+}
+
+
+function fecharAdmin(){
+
+document.getElementById(
+"adminOverlay"
+).style.display="none";
+
+}
+
+
+function mostrarListaAdmin(){
+
+const lista=
+document.getElementById(
+"listaAdmin"
+);
+
+
+if(!produtos.length){
+
+lista.innerHTML=`
+
+<div class="empty">
+
+Nenhum produto cadastrado.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+lista.innerHTML=
+
+produtos.map(produto=>`
+
+<div class="admin-item">
+
+<div>
+
+<strong>
+
+${escapar(produto.nome)}
+
+</strong>
+
+<div class="muted">
+
+${escapar(
+produto.categoria ||
+"Sem categoria"
+)}
+
+</div>
+
+</div>
+
+
+<div class="admin-actions">
+
+<button
+onclick="editarProduto(${produto.id})"
+>
+
+✏️ Editar
+
+</button>
+
+
+<button
+class="danger"
+onclick="excluirProduto(${produto.id})"
+>
+
+🗑️ Excluir
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function novoProduto(){
+
+abrirFormulario({
+
+id:"",
+nome:"",
+codigo:"",
+categoria:"",
+marca:"",
+descricao:"",
+especificacoes:"",
+imagem:""
+
+});
+
+}
+
+
+function abrirFormulario(produto){
+
+document.getElementById(
+"produtoId"
+).value=produto.id;
+
+
+document.getElementById(
+"tituloFormulario"
+).textContent=
+
+produto.id
+?
+"Editar produto"
+:
+"Novo produto";
+
+
+document.getElementById("nome").value=
+produto.nome||"";
+
+document.getElementById("codigo").value=
+produto.codigo||"";
+
+document.getElementById("categoria").value=
+produto.categoria||"";
+
+document.getElementById("marca").value=
+produto.marca||"";
+
+document.getElementById("descricao").value=
+produto.descricao||"";
+
+document.getElementById("especificacoes").value=
+produto.especificacoes||"";
+
+document.getElementById("imagem").value=
+produto.imagem||"";
+
+
+document.getElementById(
+"formOverlay"
+).style.display="block";
+
+}
+
+
+function fecharFormulario(){
+
+document.getElementById(
+"formOverlay"
+).style.display="none";
+
+}
+
+
+async function salvarProduto(){
+
+const id=
+document.getElementById(
+"produtoId"
+).value;
+
+
+const produto={
+
+nome:
+document.getElementById("nome")
+.value.trim(),
+
+codigo:
+document.getElementById("codigo")
+.value.trim(),
+
+categoria:
+document.getElementById("categoria")
+.value.trim(),
+
+marca:
+document.getElementById("marca")
+.value.trim(),
+
+descricao:
+document.getElementById("descricao")
+.value.trim(),
+
+especificacoes:
+document.getElementById(
+"especificacoes"
+).value.trim(),
+
+imagem:
+document.getElementById("imagem")
+.value.trim()
+
+};
+
+
+if(!produto.nome){
+
+alert(
+"Informe o nome do produto."
+);
+
+return;
+
+}
+
+
+try{
+
+const resposta=await fetch(
+
+id
+?
+"/api/produtos/"+id
+:
+"/api/produtos",
+
+{
+
+method:
+id
+?
+"PUT"
+:
+"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:
+JSON.stringify(produto)
+
+}
+
+);
+
+
+if(!resposta.ok){
+
+throw new Error();
+
+}
+
+
+fecharFormulario();
+
+await carregarProdutos();
+
+mostrarListaAdmin();
+
+
+}catch(error){
+
+alert(
+"Erro ao salvar produto."
+);
+
+}
+
+}
+
+
+function editarProduto(id){
+
+const produto=
+produtos.find(
+p=>p.id==id
+);
+
+
+if(produto){
+
+abrirFormulario(produto);
+
+}
+
+}
+
+
+async function excluirProduto(id){
+
+if(!confirm(
+"Tem certeza que deseja excluir este produto?"
+)){
+
+return;
+
+}
+
+
+try{
+
+await fetch(
+"/api/produtos/"+id,
+{
+method:"DELETE"
+}
+);
+
+
+await carregarProdutos();
+
+mostrarListaAdmin();
+
+
+}catch(error){
+
+alert(
+"Erro ao excluir produto."
+);
+
+}
+
+}
+
+
+function abrirDetalhes(id){
+
+const produto=
+produtos.find(
+p=>p.id==id
+);
+
+
+if(!produto)return;
+
+
+const especificacoes=
+(produto.especificacoes||"")
+.split("\n")
+.filter(Boolean);
+
+
+const tabela=
+especificacoes.map(linha=>{
+
+const partes=
+linha.split(":");
+
+const nome=
+partes.shift();
+
+const valor=
+partes.join(":");
+
+
+return`
+
+<tr>
+
+<td>
+${escapar(nome)}
+</td>
+
+<td>
+${escapar(valor)}
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+
+document.getElementById(
+"detalhes"
+).innerHTML=`
+
+<div class="modal-header">
+
+<h2>
+${escapar(produto.nome)}
+</h2>
+
+<button
+onclick="fecharDetalhes()"
+>
+✕
+</button>
+
+</div>
+
+
+${
+produto.imagem
+
+?
+
+`<img
+class="detail-image"
+src="${escapar(produto.imagem)}"
+>`
+
+:
+
+""
+
+}
+
+
+<p class="muted">
+
+${escapar(
+produto.categoria||""
+)}
+
+${
+produto.marca
+?
+" • "+escapar(produto.marca)
+:""
+}
+
+${
+produto.codigo
+?
+" • "+escapar(produto.codigo)
+:""
+}
+
+</p>
+
+
+<h3>
+Descrição
+</h3>
+
+<p>
+
+${escapar(
+produto.descricao ||
+"Nenhuma descrição cadastrada."
+)}
+
+</p>
+
+
+${
+tabela
+
+?
+
+`
+
+<h3>
+Especificações
+</h3>
+
+<table class="specs">
+
+<tbody>
+
+${tabela}
+
+</tbody>
+
+</table>
+
+`
+
+:
+
+""
+
+}
+
+`;
+
+
+document.getElementById(
+"detalhesOverlay"
+).style.display="block";
+
+}
+
+
+function fecharDetalhes(){
+
+document.getElementById(
+"detalhesOverlay"
+).style.display="none";
+
+}
+
+
+carregarProdutos();
 
 </script>
 
