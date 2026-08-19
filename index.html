@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GS SOLDAS - Catálogo</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
     font-family:Arial,sans-serif;
     background:#f3f4f6;
-    color:#20262d
+    color:#20262d;
 }
 
 header{
@@ -21,19 +25,19 @@ header{
     padding:20px 6%;
     display:flex;
     justify-content:space-between;
-    align-items:center
+    align-items:center;
 }
 
 .logo{
     font-size:23px;
-    font-weight:bold
+    font-weight:bold;
 }
 
 .logo span{
     display:block;
     font-size:11px;
     color:#aaa;
-    margin-top:4px
+    margin-top:4px;
 }
 
 button{
@@ -41,41 +45,41 @@ button{
     border-radius:8px;
     padding:11px 16px;
     font-weight:bold;
-    cursor:pointer
+    cursor:pointer;
 }
 
 .admin{
     background:white;
-    color:#20262d
+    color:#20262d;
 }
 
 .primary{
     background:#e86b20;
-    color:white
+    color:white;
 }
 
 .danger{
     background:#ffe0e0;
-    color:#a00000
+    color:#a00000;
 }
 
 .container{
     width:90%;
     max-width:1200px;
-    margin:auto
+    margin:auto;
 }
 
 .hero{
-    padding:40px 0 20px
+    padding:40px 0 20px;
 }
 
 .hero h1{
     margin:0 0 8px;
-    font-size:34px
+    font-size:34px;
 }
 
 .hero p{
-    color:#69747d
+    color:#69747d;
 }
 
 .search{
@@ -84,31 +88,31 @@ button{
     border:1px solid #d5dbe0;
     border-radius:10px;
     font-size:15px;
-    margin:20px 0
+    margin:20px 0;
 }
 
 .filters{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
-    margin-bottom:25px
+    margin-bottom:25px;
 }
 
 .filter{
     background:white;
-    border:1px solid #d5dbe0
+    border:1px solid #d5dbe0;
 }
 
 .filter.active{
     background:#20262d;
-    color:white
+    color:white;
 }
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
     gap:18px;
-    padding-bottom:40px
+    padding-bottom:40px;
 }
 
 .card{
@@ -117,11 +121,11 @@ button{
     overflow:hidden;
     border:1px solid #e0e4e8;
     cursor:pointer;
-    transition:.2s
+    transition:.2s;
 }
 
 .card:hover{
-    transform:translateY(-4px)
+    transform:translateY(-4px);
 }
 
 .image{
@@ -130,33 +134,33 @@ button{
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#89939b
+    color:#89939b;
 }
 
 .image img{
     width:100%;
     height:100%;
-    object-fit:cover
+    object-fit:cover;
 }
 
 .content{
-    padding:17px
+    padding:17px;
 }
 
 .category{
     color:#e86b20;
     font-size:11px;
     font-weight:bold;
-    text-transform:uppercase
+    text-transform:uppercase;
 }
 
 .content h3{
-    margin:7px 0
+    margin:7px 0;
 }
 
 .muted{
     color:#69747d;
-    font-size:13px
+    font-size:13px;
 }
 
 .empty{
@@ -165,7 +169,7 @@ button{
     border-radius:14px;
     padding:60px 20px;
     text-align:center;
-    margin-bottom:40px
+    margin-bottom:40px;
 }
 
 .overlay{
@@ -175,7 +179,7 @@ button{
     background:rgba(0,0,0,.65);
     z-index:20;
     padding:20px;
-    overflow:auto
+    overflow:auto;
 }
 
 .modal{
@@ -183,30 +187,34 @@ button{
     max-width:760px;
     margin:30px auto;
     border-radius:15px;
-    padding:25px
+    padding:25px;
+}
+
+.login-modal{
+    max-width:420px;
 }
 
 .modal-header{
     display:flex;
     justify-content:space-between;
-    align-items:center
+    align-items:center;
 }
 
 .row{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:15px
+    gap:15px;
 }
 
 .field{
-    margin-bottom:15px
+    margin-bottom:15px;
 }
 
 .field label{
     display:block;
     font-size:13px;
     font-weight:bold;
-    margin-bottom:6px
+    margin-bottom:6px;
 }
 
 .field input,
@@ -215,18 +223,18 @@ button{
     padding:11px;
     border:1px solid #d7dde2;
     border-radius:8px;
-    font-family:inherit
+    font-family:inherit;
 }
 
 .field textarea{
     min-height:100px;
-    resize:vertical
+    resize:vertical;
 }
 
 .actions{
     display:flex;
     justify-content:flex-end;
-    gap:8px
+    gap:8px;
 }
 
 .admin-item{
@@ -236,12 +244,12 @@ button{
     display:flex;
     justify-content:space-between;
     gap:10px;
-    margin-top:10px
+    margin-top:10px;
 }
 
 .admin-actions{
     display:flex;
-    gap:6px
+    gap:6px;
 }
 
 .detail-image{
@@ -250,139 +258,216 @@ button{
     object-fit:contain;
     background:#eef1f3;
     border-radius:10px;
-    margin:15px 0
+    margin:15px 0;
 }
 
 .specs{
     width:100%;
-    border-collapse:collapse
+    border-collapse:collapse;
 }
 
 .specs td{
     padding:10px;
-    border-bottom:1px solid #e1e5e8
+    border-bottom:1px solid #e1e5e8;
 }
 
 .specs td:first-child{
     font-weight:bold;
-    width:35%
+    width:35%;
 }
 
-.login-info{
+.login-message{
     background:#f3f4f6;
     padding:12px;
     border-radius:8px;
-    margin-bottom:15px;
+    margin-bottom:18px;
     font-size:13px;
-    color:#69747d
+    color:#69747d;
+}
+
+.error-message{
+    color:#b00020;
+    font-size:13px;
+    margin-top:8px;
+    display:none;
 }
 
 @media(max-width:650px){
 
     header{
-        padding:16px 5%
+        padding:16px 5%;
     }
 
     .hero h1{
-        font-size:27px
+        font-size:27px;
     }
 
     .row{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
     }
 
     .admin-item{
-        flex-direction:column
+        flex-direction:column;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
+
 <header>
 
 <div class="logo">
+
 GS SOLDAS
-<span>Produtos e especificações</span>
+
+<span>
+Produtos e especificações
+</span>
+
 </div>
 
-<button class="admin" onclick="abrirLogin()">
+
+<button
+class="admin"
+onclick="abrirLogin()"
+>
+
 ⚙ Administração
+
 </button>
 
 </header>
+
+
+
+<!-- =====================================================
+     CATÁLOGO
+===================================================== -->
 
 <main class="container">
 
 <section class="hero">
 
-<h1>Catálogo de Produtos</h1>
+<h1>
+Catálogo de Produtos
+</h1>
 
 <p>
 Consulte nossos produtos e suas especificações.
 </p>
 
+
 <input
 id="pesquisa"
 class="search"
 placeholder="🔎 Pesquisar produto, marca ou código..."
-oninput="mostrarProdutos"
+oninput="mostrarProdutos()"
 >
 
-<div id="filtros" class="filters"></div>
+
+<div
+id="filtros"
+class="filters"
+></div>
 
 </section>
 
-<section id="catalogo"></section>
+
+<section
+id="catalogo"
+></section>
 
 </main>
 
 
-<!-- ===================================================== -->
-<!-- LOGIN DO ADMINISTRADOR -->
-<!-- ===================================================== -->
 
-<div id="loginOverlay" class="overlay">
+<!-- =====================================================
+     LOGIN ADMINISTRADOR
+===================================================== -->
 
-<div class="modal" style="max-width:420px">
+<div
+id="loginOverlay"
+class="overlay"
+>
+
+<div
+class="modal login-modal"
+>
 
 <div class="modal-header">
 
-<h2>🔐 Administração</h2>
+<h2>
+🔐 Administração
+</h2>
 
-<button onclick="fecharLogin()">✕</button>
+<button
+onclick="fecharLogin()"
+>
+✕
+</button>
 
 </div>
+
 
 <br>
 
-<div class="login-info">
 
-Área restrita. Digite a senha para acessar o painel administrativo.
+<div class="login-message">
+
+Área restrita do administrador.
+
+Digite sua senha para continuar.
 
 </div>
 
+
 <div class="field">
 
-<label>Senha</label>
+<label>
+Senha
+</label>
+
 
 <input
 id="senhaAdmin"
 type="password"
 placeholder="Digite a senha"
+autocomplete="current-password"
 onkeydown="if(event.key==='Enter') entrarAdmin()"
 >
 
+
+<div
+id="loginErro"
+class="error-message"
+>
+Senha incorreta.
 </div>
+
+</div>
+
 
 <div class="actions">
 
-<button onclick="fecharLogin()">
+<button
+onclick="fecharLogin()"
+>
 Cancelar
 </button>
 
-<button class="primary" onclick="entrarAdmin()">
+
+<button
+class="primary"
+onclick="entrarAdmin()"
+>
 Entrar
 </button>
 
@@ -393,40 +478,63 @@ Entrar
 </div>
 
 
-<!-- ===================================================== -->
-<!-- PAINEL ADMINISTRATIVO -->
-<!-- ===================================================== -->
 
-<div id="adminOverlay" class="overlay">
+<!-- =====================================================
+     PAINEL ADMINISTRADOR
+===================================================== -->
+
+<div
+id="adminOverlay"
+class="overlay"
+>
 
 <div class="modal">
 
 <div class="modal-header">
 
-<h2>Administração</h2>
+<h2>
+Administração
+</h2>
 
-<button onclick="fecharAdmin()">✕</button>
+
+<button
+onclick="fecharAdmin()"
+>
+✕
+</button>
 
 </div>
+
 
 <br>
 
-<button class="primary" onclick="novoProduto()">
+
+<button
+class="primary"
+onclick="novoProduto()"
+>
 ＋ Novo produto
 </button>
 
-<div id="listaAdmin"></div>
+
+<div
+id="listaAdmin"
+></div>
 
 </div>
 
 </div>
 
 
-<!-- ===================================================== -->
-<!-- FORMULÁRIO DE PRODUTO -->
-<!-- ===================================================== -->
 
-<div id="formOverlay" class="overlay">
+<!-- =====================================================
+     FORMULÁRIO DE PRODUTO
+===================================================== -->
+
+<div
+id="formOverlay"
+class="overlay"
+>
 
 <div class="modal">
 
@@ -436,68 +544,111 @@ Entrar
 Novo produto
 </h2>
 
-<button onclick="fecharFormulario()">✕</button>
+
+<button
+onclick="fecharFormulario()"
+>
+✕
+</button>
 
 </div>
 
-<input type="hidden" id="produtoId">
+
+<input
+type="hidden"
+id="produtoId"
+>
+
 
 <br>
 
-<div class="row">
-
-<div class="field">
-
-<label>Nome do produto *</label>
-
-<input id="nome" placeholder="Ex.: Primer PU">
-
-</div>
-
-<div class="field">
-
-<label>Código</label>
-
-<input id="codigo" placeholder="Ex.: PR-001">
-
-</div>
-
-</div>
-
 
 <div class="row">
 
-<div class="field">
-
-<label>Categoria</label>
-
-<input id="categoria" placeholder="Ex.: Pintura Automotiva">
-
-</div>
 
 <div class="field">
 
-<label>Marca</label>
+<label>
+Nome do produto *
+</label>
 
-<input id="marca">
-
-</div>
+<input
+id="nome"
+placeholder="Ex.: Primer PU"
+>
 
 </div>
 
 
 <div class="field">
 
-<label>Descrição</label>
+<label>
+Código
+</label>
 
-<textarea id="descricao"></textarea>
+<input
+id="codigo"
+placeholder="Ex.: PR-001"
+>
+
+</div>
+
+</div>
+
+
+
+<div class="row">
+
+
+<div class="field">
+
+<label>
+Categoria
+</label>
+
+<input
+id="categoria"
+placeholder="Ex.: Pintura Automotiva"
+>
 
 </div>
 
 
 <div class="field">
 
-<label>Especificações</label>
+<label>
+Marca
+</label>
+
+<input
+id="marca"
+>
+
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Descrição
+</label>
+
+<textarea
+id="descricao"
+></textarea>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Especificações
+</label>
 
 <textarea
 id="especificacoes"
@@ -509,9 +660,12 @@ Aplicação: Automotiva"
 </div>
 
 
+
 <div class="field">
 
-<label>URL da imagem</label>
+<label>
+URL da imagem
+</label>
 
 <input
 id="imagem"
@@ -521,13 +675,20 @@ placeholder="https://..."
 </div>
 
 
+
 <div class="actions">
 
-<button onclick="fecharFormulario()">
+<button
+onclick="fecharFormulario()"
+>
 Cancelar
 </button>
 
-<button class="primary" onclick="salvarProduto()">
+
+<button
+class="primary"
+onclick="salvarProduto()"
+>
 Salvar produto
 </button>
 
@@ -538,36 +699,53 @@ Salvar produto
 </div>
 
 
-<!-- ===================================================== -->
-<!-- DETALHES DO PRODUTO -->
-<!-- ===================================================== -->
 
-<div id="detalhesOverlay" class="overlay">
+<!-- =====================================================
+     DETALHES DO PRODUTO
+===================================================== -->
 
-<div class="modal" id="detalhes"></div>
+<div
+id="detalhesOverlay"
+class="overlay"
+>
+
+<div
+class="modal"
+id="detalhes"
+></div>
 
 </div>
 
 
+
 <script>
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
 
 let produtos = [];
 
 let categoriaAtual = "Todos";
 
-// Autenticação atual do administrador
 let adminAuth = null;
 
 
-/* ========================================================
+
+/* =====================================================
    CARREGAR PRODUTOS
-======================================================== */
+===================================================== */
 
 async function carregarProdutos(){
 
 try{
 
-const resposta = await fetch("/api/produtos");
+const resposta =
+await fetch(
+"/api/produtos"
+);
+
 
 if(!resposta.ok){
 
@@ -575,15 +753,22 @@ throw new Error();
 
 }
 
-produtos = await resposta.json();
+
+produtos =
+await resposta.json();
+
 
 mostrarProdutos();
 
+
 mostrarListaAdmin();
+
 
 }catch(error){
 
-document.getElementById("catalogo").innerHTML = `
+document.getElementById(
+"catalogo"
+).innerHTML = `
 
 <div class="empty">
 
@@ -604,9 +789,10 @@ A API ainda não está configurada.
 }
 
 
-/* ========================================================
-   ESCAPAR HTML
-======================================================== */
+
+/* =====================================================
+   ESCAPAR TEXTO
+===================================================== */
 
 function escapar(texto=""){
 
@@ -628,9 +814,10 @@ caractere => ({
 }
 
 
-/* ========================================================
+
+/* =====================================================
    CATEGORIAS
-======================================================== */
+===================================================== */
 
 function obterCategorias(){
 
@@ -641,7 +828,7 @@ return [
 ...new Set(
 
 produtos
-.map(p=>p.categoria)
+.map(p => p.categoria)
 .filter(Boolean)
 
 )
@@ -653,9 +840,12 @@ produtos
 
 function mostrarFiltros(){
 
-document.getElementById("filtros").innerHTML =
+document.getElementById(
+"filtros"
+).innerHTML =
 
-obterCategorias().map(categoria => `
+obterCategorias()
+.map(categoria => `
 
 <button
 class="filter ${
@@ -670,18 +860,21 @@ ${escapar(categoria)}
 
 </button>
 
-`).join("");
+`)
+.join("");
 
 }
 
 
-/* ========================================================
+
+/* =====================================================
    MOSTRAR PRODUTOS
-======================================================== */
+===================================================== */
 
 function mostrarProdutos(){
 
 mostrarFiltros();
+
 
 const pesquisa =
 document
@@ -690,10 +883,14 @@ document
 .toLowerCase();
 
 
-const lista = produtos.filter(produto => {
+const lista =
+produtos.filter(produto => {
+
 
 const categoriaOK =
+
 categoriaAtual === "Todos" ||
+
 produto.categoria === categoriaAtual;
 
 
@@ -705,7 +902,9 @@ produto.codigo,
 produto.categoria,
 produto.descricao
 
-].join(" ").toLowerCase();
+]
+.join(" ")
+.toLowerCase();
 
 
 return categoriaOK &&
@@ -714,9 +913,12 @@ texto.includes(pesquisa);
 });
 
 
+
 if(!lista.length){
 
-document.getElementById("catalogo").innerHTML = `
+document.getElementById(
+"catalogo"
+).innerHTML = `
 
 <div class="empty">
 
@@ -737,7 +939,10 @@ return;
 }
 
 
-document.getElementById("catalogo").innerHTML = `
+
+document.getElementById(
+"catalogo"
+).innerHTML = `
 
 <div class="grid">
 
@@ -790,13 +995,17 @@ ${escapar(produto.nome)}
 
 <div class="muted">
 
-${escapar(produto.marca || "")}
+${escapar(
+produto.marca || ""
+)}
 
 ${
 produto.codigo
 ?
-" • " + escapar(produto.codigo)
-: ""
+" • " +
+escapar(produto.codigo)
+:
+""
 }
 
 </div>
@@ -814,19 +1023,30 @@ produto.codigo
 }
 
 
-/* ========================================================
-   LOGIN ADMIN
-======================================================== */
+
+/* =====================================================
+   LOGIN
+===================================================== */
 
 function abrirLogin(){
 
 document.getElementById(
 "loginOverlay"
-).style.display = "block";
+).style.display =
+"block";
+
 
 document.getElementById(
 "senhaAdmin"
-).value = "";
+).value =
+"";
+
+
+document.getElementById(
+"loginErro"
+).style.display =
+"none";
+
 
 setTimeout(() => {
 
@@ -843,10 +1063,16 @@ function fecharLogin(){
 
 document.getElementById(
 "loginOverlay"
-).style.display = "none";
+).style.display =
+"none";
 
 }
 
+
+
+/* =====================================================
+   ENTRAR NO ADMIN
+===================================================== */
 
 async function entrarAdmin(){
 
@@ -856,25 +1082,50 @@ document.getElementById(
 ).value;
 
 
+const erro =
+document.getElementById(
+"loginErro"
+);
+
+
 if(!senha){
 
-alert("Digite a senha.");
+erro.textContent =
+"Digite a senha.";
+
+erro.style.display =
+"block";
 
 return;
 
 }
 
 
+/*
+   Cria o Authorization Basic.
+
+   Usuário:
+   admin
+
+   Senha:
+   senha digitada
+*/
+
 const auth =
 "Basic " +
-btoa("admin:" + senha);
+btoa(
+"admin:" + senha
+);
 
 
 try{
 
-const resposta = await fetch(
+
+const resposta =
+await fetch(
 "/api/admin/teste",
 {
+
 method:"GET",
 
 headers:{
@@ -885,36 +1136,51 @@ headers:{
 );
 
 
+
 if(!resposta.ok){
 
-alert("Senha incorreta.");
+erro.textContent =
+"Senha incorreta.";
+
+erro.style.display =
+"block";
 
 return;
 
 }
 
 
-adminAuth = auth;
+/*
+   Senha correta.
+*/
+
+adminAuth =
+auth;
+
 
 fecharLogin();
+
 
 abrirAdmin();
 
 
 }catch(error){
 
-alert(
-"Não foi possível verificar a senha."
-);
+erro.textContent =
+"Erro ao verificar a senha.";
+
+erro.style.display =
+"block";
 
 }
 
 }
 
 
-/* ========================================================
-   PAINEL ADMIN
-======================================================== */
+
+/* =====================================================
+   ABRIR ADMIN
+===================================================== */
 
 function abrirAdmin(){
 
@@ -926,9 +1192,12 @@ return;
 
 }
 
+
 document.getElementById(
 "adminOverlay"
-).style.display = "block";
+).style.display =
+"block";
+
 
 mostrarListaAdmin();
 
@@ -939,14 +1208,16 @@ function fecharAdmin(){
 
 document.getElementById(
 "adminOverlay"
-).style.display = "none";
+).style.display =
+"none";
 
 }
 
 
-/* ========================================================
+
+/* =====================================================
    LISTA ADMIN
-======================================================== */
+===================================================== */
 
 function mostrarListaAdmin(){
 
@@ -973,6 +1244,7 @@ return;
 }
 
 
+
 lista.innerHTML =
 
 produtos.map(produto => `
@@ -983,9 +1255,12 @@ produtos.map(produto => `
 
 <strong>
 
-${escapar(produto.nome)}
+${escapar(
+produto.nome
+)}
 
 </strong>
+
 
 <div class="muted">
 
@@ -999,7 +1274,9 @@ produto.categoria ||
 </div>
 
 
+
 <div class="admin-actions">
+
 
 <button
 onclick="editarProduto(${produto.id})"
@@ -1008,6 +1285,7 @@ onclick="editarProduto(${produto.id})"
 ✏️ Editar
 
 </button>
+
 
 
 <button
@@ -1019,18 +1297,21 @@ onclick="excluirProduto(${produto.id})"
 
 </button>
 
-</div>
 
 </div>
 
-`).join("");
+</div>
+
+`)
+.join("");
 
 }
 
 
-/* ========================================================
+
+/* =====================================================
    NOVO PRODUTO
-======================================================== */
+===================================================== */
 
 function novoProduto(){
 
@@ -1050,15 +1331,17 @@ imagem:""
 }
 
 
-/* ========================================================
-   FORMULÁRIO
-======================================================== */
+
+/* =====================================================
+   ABRIR FORMULÁRIO
+===================================================== */
 
 function abrirFormulario(produto){
 
 document.getElementById(
 "produtoId"
-).value = produto.id;
+).value =
+produto.id;
 
 
 document.getElementById(
@@ -1072,31 +1355,59 @@ produto.id
 "Novo produto";
 
 
-document.getElementById("nome").value =
-produto.nome || "";
+document.getElementById(
+"nome"
+).value =
+produto.nome ||
+"";
 
-document.getElementById("codigo").value =
-produto.codigo || "";
 
-document.getElementById("categoria").value =
-produto.categoria || "";
+document.getElementById(
+"codigo"
+).value =
+produto.codigo ||
+"";
 
-document.getElementById("marca").value =
-produto.marca || "";
 
-document.getElementById("descricao").value =
-produto.descricao || "";
+document.getElementById(
+"categoria"
+).value =
+produto.categoria ||
+"";
 
-document.getElementById("especificacoes").value =
-produto.especificacoes || "";
 
-document.getElementById("imagem").value =
-produto.imagem || "";
+document.getElementById(
+"marca"
+).value =
+produto.marca ||
+"";
+
+
+document.getElementById(
+"descricao"
+).value =
+produto.descricao ||
+"";
+
+
+document.getElementById(
+"especificacoes"
+).value =
+produto.especificacoes ||
+"";
+
+
+document.getElementById(
+"imagem"
+).value =
+produto.imagem ||
+"";
 
 
 document.getElementById(
 "formOverlay"
-).style.display = "block";
+).style.display =
+"block";
 
 }
 
@@ -1105,22 +1416,20 @@ function fecharFormulario(){
 
 document.getElementById(
 "formOverlay"
-).style.display = "none";
+).style.display =
+"none";
 
 }
 
 
-/* ========================================================
+
+/* =====================================================
    SALVAR PRODUTO
-======================================================== */
+===================================================== */
 
 async function salvarProduto(){
 
 if(!adminAuth){
-
-alert(
-"Você não está autenticado."
-);
 
 fecharFormulario();
 
@@ -1140,24 +1449,29 @@ document.getElementById(
 const produto = {
 
 nome:
-document.getElementById("nome")
-.value.trim(),
+document.getElementById(
+"nome"
+).value.trim(),
 
 codigo:
-document.getElementById("codigo")
-.value.trim(),
+document.getElementById(
+"codigo"
+).value.trim(),
 
 categoria:
-document.getElementById("categoria")
-.value.trim(),
+document.getElementById(
+"categoria"
+).value.trim(),
 
 marca:
-document.getElementById("marca")
-.value.trim(),
+document.getElementById(
+"marca"
+).value.trim(),
 
 descricao:
-document.getElementById("descricao")
-.value.trim(),
+document.getElementById(
+"descricao"
+).value.trim(),
 
 especificacoes:
 document.getElementById(
@@ -1165,10 +1479,12 @@ document.getElementById(
 ).value.trim(),
 
 imagem:
-document.getElementById("imagem")
-.value.trim()
+document.getElementById(
+"imagem"
+).value.trim()
 
 };
+
 
 
 if(!produto.nome){
@@ -1182,9 +1498,12 @@ return;
 }
 
 
+
 try{
 
-const resposta = await fetch(
+
+const resposta =
+await fetch(
 
 id
 ?
@@ -1219,34 +1538,46 @@ JSON.stringify(produto)
 );
 
 
+
 if(!resposta.ok){
+
 
 if(resposta.status === 401){
 
-adminAuth = null;
+adminAuth =
+null;
+
 
 fecharFormulario();
 
+
 abrirLogin();
+
 
 alert(
 "Sua sessão expirou. Digite a senha novamente."
 );
 
+
 return;
 
 }
+
 
 throw new Error();
 
 }
 
 
+
 fecharFormulario();
+
 
 await carregarProdutos();
 
+
 mostrarListaAdmin();
+
 
 
 }catch(error){
@@ -1260,11 +1591,21 @@ alert(
 }
 
 
-/* ========================================================
-   EDITAR PRODUTO
-======================================================== */
+
+/* =====================================================
+   EDITAR
+===================================================== */
 
 function editarProduto(id){
+
+if(!adminAuth){
+
+abrirLogin();
+
+return;
+
+}
+
 
 const produto =
 produtos.find(
@@ -1274,16 +1615,19 @@ p => p.id == id
 
 if(produto){
 
-abrirFormulario(produto);
+abrirFormulario(
+produto
+);
 
 }
 
 }
 
 
-/* ========================================================
-   EXCLUIR PRODUTO
-======================================================== */
+
+/* =====================================================
+   EXCLUIR
+===================================================== */
 
 async function excluirProduto(id){
 
@@ -1305,9 +1649,12 @@ return;
 }
 
 
+
 try{
 
-const resposta = await fetch(
+
+const resposta =
+await fetch(
 
 "/api/produtos/" + id,
 
@@ -1316,8 +1663,10 @@ const resposta = await fetch(
 method:"DELETE",
 
 headers:{
+
 "Authorization":
 adminAuth
+
 }
 
 }
@@ -1325,30 +1674,40 @@ adminAuth
 );
 
 
+
 if(!resposta.ok){
+
 
 if(resposta.status === 401){
 
-adminAuth = null;
+adminAuth =
+null;
+
 
 abrirLogin();
+
 
 alert(
 "Sua sessão expirou. Digite a senha novamente."
 );
 
+
 return;
 
 }
+
 
 throw new Error();
 
 }
 
 
+
 await carregarProdutos();
 
+
 mostrarListaAdmin();
+
 
 
 }catch(error){
@@ -1362,9 +1721,10 @@ alert(
 }
 
 
-/* ========================================================
+
+/* =====================================================
    DETALHES
-======================================================== */
+===================================================== */
 
 function abrirDetalhes(id){
 
@@ -1374,7 +1734,12 @@ p => p.id == id
 );
 
 
-if(!produto)return;
+if(!produto){
+
+return;
+
+}
+
 
 
 const especificacoes =
@@ -1383,14 +1748,18 @@ const especificacoes =
 .filter(Boolean);
 
 
+
 const tabela =
 especificacoes.map(linha => {
+
 
 const partes =
 linha.split(":");
 
+
 const nome =
 partes.shift();
+
 
 const valor =
 partes.join(":");
@@ -1412,7 +1781,9 @@ ${escapar(valor)}
 
 `;
 
-}).join("");
+})
+.join("");
+
 
 
 document.getElementById(
@@ -1422,16 +1793,24 @@ document.getElementById(
 <div class="modal-header">
 
 <h2>
-${escapar(produto.nome)}
+
+${escapar(
+produto.nome
+)}
+
 </h2>
+
 
 <button
 onclick="fecharDetalhes()"
 >
+
 ✕
+
 </button>
 
 </div>
+
 
 
 ${
@@ -1452,32 +1831,50 @@ alt="${escapar(produto.nome)}"
 }
 
 
+
 <p class="muted">
 
 ${escapar(
-produto.categoria || ""
+produto.categoria ||
+""
 )}
+
 
 ${
 produto.marca
+
 ?
-" • " + escapar(produto.marca)
-: ""
+
+" • " +
+escapar(produto.marca)
+
+:
+
+""
 }
+
 
 ${
 produto.codigo
+
 ?
-" • " + escapar(produto.codigo)
-: ""
+
+" • " +
+escapar(produto.codigo)
+
+:
+
+""
 }
 
 </p>
 
 
+
 <h3>
 Descrição
 </h3>
+
 
 <p>
 
@@ -1487,6 +1884,7 @@ produto.descricao ||
 )}
 
 </p>
+
 
 
 ${
@@ -1499,6 +1897,7 @@ tabela
 <h3>
 Especificações
 </h3>
+
 
 <table class="specs">
 
@@ -1521,9 +1920,11 @@ ${tabela}
 `;
 
 
+
 document.getElementById(
 "detalhesOverlay"
-).style.display = "block";
+).style.display =
+"block";
 
 }
 
@@ -1532,14 +1933,16 @@ function fecharDetalhes(){
 
 document.getElementById(
 "detalhesOverlay"
-).style.display = "none";
+).style.display =
+"none";
 
 }
 
 
-/* ========================================================
+
+/* =====================================================
    INICIAR
-======================================================== */
+===================================================== */
 
 carregarProdutos();
 
