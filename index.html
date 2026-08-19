@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>GS SOLDAS - Catálogo</title>
 
@@ -110,7 +115,8 @@ button{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    grid-template-columns:
+        repeat(auto-fill,minmax(240px,1fr));
     gap:18px;
     padding-bottom:40px;
 }
@@ -250,6 +256,8 @@ button{
 .admin-actions{
     display:flex;
     gap:6px;
+    flex-wrap:wrap;
+    align-items:center;
 }
 
 .detail-image{
@@ -292,6 +300,11 @@ button{
     display:none;
 }
 
+.duplicate{
+    background:#eef5ff;
+    color:#174a8b;
+}
+
 @media(max-width:650px){
 
     header{
@@ -313,6 +326,7 @@ button{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -336,8 +350,8 @@ Produtos e especificações
 
 
 <button
-class="admin"
-onclick="abrirLogin()"
+    class="admin"
+    onclick="abrirLogin()"
 >
 
 ⚙ Administração
@@ -366,23 +380,23 @@ Consulte nossos produtos e suas especificações.
 
 
 <input
-id="pesquisa"
-class="search"
-placeholder="🔎 Pesquisar produto, marca ou código..."
-oninput="mostrarProdutos()"
+    id="pesquisa"
+    class="search"
+    placeholder="🔎 Pesquisar produto, marca ou código..."
+    oninput="mostrarProdutos()"
 >
 
 
 <div
-id="filtros"
-class="filters"
+    id="filtros"
+    class="filters"
 ></div>
 
 </section>
 
 
 <section
-id="catalogo"
+    id="catalogo"
 ></section>
 
 </main>
@@ -390,16 +404,16 @@ id="catalogo"
 
 
 <!-- =====================================================
-     LOGIN ADMINISTRADOR
+     LOGIN
 ===================================================== -->
 
 <div
-id="loginOverlay"
-class="overlay"
+    id="loginOverlay"
+    class="overlay"
 >
 
 <div
-class="modal login-modal"
+    class="modal login-modal"
 >
 
 <div class="modal-header">
@@ -409,7 +423,7 @@ class="modal login-modal"
 </h2>
 
 <button
-onclick="fecharLogin()"
+    onclick="fecharLogin()"
 >
 ✕
 </button>
@@ -437,17 +451,17 @@ Senha
 
 
 <input
-id="senhaAdmin"
-type="password"
-placeholder="Digite a senha"
-autocomplete="current-password"
-onkeydown="if(event.key==='Enter') entrarAdmin()"
+    id="senhaAdmin"
+    type="password"
+    placeholder="Digite a senha"
+    autocomplete="current-password"
+    onkeydown="if(event.key==='Enter') entrarAdmin()"
 >
 
 
 <div
-id="loginErro"
-class="error-message"
+    id="loginErro"
+    class="error-message"
 >
 Senha incorreta.
 </div>
@@ -458,15 +472,15 @@ Senha incorreta.
 <div class="actions">
 
 <button
-onclick="fecharLogin()"
+    onclick="fecharLogin()"
 >
 Cancelar
 </button>
 
 
 <button
-class="primary"
-onclick="entrarAdmin()"
+    class="primary"
+    onclick="entrarAdmin()"
 >
 Entrar
 </button>
@@ -480,12 +494,12 @@ Entrar
 
 
 <!-- =====================================================
-     PAINEL ADMINISTRADOR
+     ADMIN
 ===================================================== -->
 
 <div
-id="adminOverlay"
-class="overlay"
+    id="adminOverlay"
+    class="overlay"
 >
 
 <div class="modal">
@@ -498,7 +512,7 @@ Administração
 
 
 <button
-onclick="fecharAdmin()"
+    onclick="fecharAdmin()"
 >
 ✕
 </button>
@@ -510,15 +524,15 @@ onclick="fecharAdmin()"
 
 
 <button
-class="primary"
-onclick="novoProduto()"
+    class="primary"
+    onclick="novoProduto()"
 >
 ＋ Novo produto
 </button>
 
 
 <div
-id="listaAdmin"
+    id="listaAdmin"
 ></div>
 
 </div>
@@ -528,12 +542,12 @@ id="listaAdmin"
 
 
 <!-- =====================================================
-     FORMULÁRIO DE PRODUTO
+     FORMULÁRIO
 ===================================================== -->
 
 <div
-id="formOverlay"
-class="overlay"
+    id="formOverlay"
+    class="overlay"
 >
 
 <div class="modal">
@@ -546,7 +560,7 @@ Novo produto
 
 
 <button
-onclick="fecharFormulario()"
+    onclick="fecharFormulario()"
 >
 ✕
 </button>
@@ -555,8 +569,8 @@ onclick="fecharFormulario()"
 
 
 <input
-type="hidden"
-id="produtoId"
+    type="hidden"
+    id="produtoId"
 >
 
 
@@ -573,8 +587,8 @@ Nome do produto *
 </label>
 
 <input
-id="nome"
-placeholder="Ex.: Primer PU"
+    id="nome"
+    placeholder="Ex.: Primer PU"
 >
 
 </div>
@@ -587,8 +601,8 @@ Código
 </label>
 
 <input
-id="codigo"
-placeholder="Ex.: PR-001"
+    id="codigo"
+    placeholder="Ex.: PR-001"
 >
 
 </div>
@@ -607,8 +621,8 @@ Categoria
 </label>
 
 <input
-id="categoria"
-placeholder="Ex.: Pintura Automotiva"
+    id="categoria"
+    placeholder="Ex.: Pintura Automotiva"
 >
 
 </div>
@@ -621,7 +635,7 @@ Marca
 </label>
 
 <input
-id="marca"
+    id="marca"
 >
 
 </div>
@@ -637,7 +651,7 @@ Descrição
 </label>
 
 <textarea
-id="descricao"
+    id="descricao"
 ></textarea>
 
 </div>
@@ -651,8 +665,8 @@ Especificações
 </label>
 
 <textarea
-id="especificacoes"
-placeholder="Volume: 900 ml
+    id="especificacoes"
+    placeholder="Volume: 900 ml
 Acabamento: Fosco
 Aplicação: Automotiva"
 ></textarea>
@@ -668,8 +682,8 @@ URL da imagem
 </label>
 
 <input
-id="imagem"
-placeholder="https://..."
+    id="imagem"
+    placeholder="https://..."
 >
 
 </div>
@@ -679,15 +693,15 @@ placeholder="https://..."
 <div class="actions">
 
 <button
-onclick="fecharFormulario()"
+    onclick="fecharFormulario()"
 >
 Cancelar
 </button>
 
 
 <button
-class="primary"
-onclick="salvarProduto()"
+    class="primary"
+    onclick="salvarProduto()"
 >
 Salvar produto
 </button>
@@ -701,17 +715,17 @@ Salvar produto
 
 
 <!-- =====================================================
-     DETALHES DO PRODUTO
+     DETALHES
 ===================================================== -->
 
 <div
-id="detalhesOverlay"
-class="overlay"
+    id="detalhesOverlay"
+    class="overlay"
 >
 
 <div
-class="modal"
-id="detalhes"
+    class="modal"
+    id="detalhes"
 ></div>
 
 </div>
@@ -742,9 +756,7 @@ async function carregarProdutos(){
 try{
 
 const resposta =
-await fetch(
-"/api/produtos"
-);
+await fetch("/api/produtos");
 
 
 if(!resposta.ok){
@@ -760,14 +772,13 @@ await resposta.json();
 
 mostrarProdutos();
 
-
 mostrarListaAdmin();
 
 
 }catch(error){
 
 document.getElementById(
-"catalogo"
+    "catalogo"
 ).innerHTML = `
 
 <div class="empty">
@@ -797,17 +808,17 @@ A API ainda não está configurada.
 function escapar(texto=""){
 
 return String(texto).replace(
-/[&<>"']/g,
+    /[&<>"']/g,
 
-caractere => ({
+    caractere => ({
 
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
 
-}[caractere])
+    }[caractere])
 
 );
 
@@ -841,19 +852,19 @@ produtos
 function mostrarFiltros(){
 
 document.getElementById(
-"filtros"
+    "filtros"
 ).innerHTML =
 
 obterCategorias()
 .map(categoria => `
 
 <button
-class="filter ${
-categoria === categoriaAtual
-? "active"
-: ""
-}"
-onclick='categoriaAtual=${JSON.stringify(categoria)};mostrarProdutos()'
+    class="filter ${
+        categoria === categoriaAtual
+        ? "active"
+        : ""
+    }"
+    onclick='categoriaAtual=${JSON.stringify(categoria)};mostrarProdutos()'
 >
 
 ${escapar(categoria)}
@@ -917,7 +928,7 @@ texto.includes(pesquisa);
 if(!lista.length){
 
 document.getElementById(
-"catalogo"
+    "catalogo"
 ).innerHTML = `
 
 <div class="empty">
@@ -941,7 +952,7 @@ return;
 
 
 document.getElementById(
-"catalogo"
+    "catalogo"
 ).innerHTML = `
 
 <div class="grid">
@@ -949,8 +960,8 @@ document.getElementById(
 ${lista.map(produto => `
 
 <article
-class="card"
-onclick="abrirDetalhes(${produto.id})"
+    class="card"
+    onclick="abrirDetalhes(${produto.id})"
 >
 
 <div class="image">
@@ -961,8 +972,8 @@ produto.imagem
 ?
 
 `<img
-src="${escapar(produto.imagem)}"
-alt="${escapar(produto.nome)}"
+    src="${escapar(produto.imagem)}"
+    alt="${escapar(produto.nome)}"
 >`
 
 :
@@ -979,8 +990,8 @@ alt="${escapar(produto.nome)}"
 <div class="category">
 
 ${escapar(
-produto.categoria ||
-"Sem categoria"
+    produto.categoria ||
+    "Sem categoria"
 )}
 
 </div>
@@ -996,7 +1007,7 @@ ${escapar(produto.nome)}
 <div class="muted">
 
 ${escapar(
-produto.marca || ""
+    produto.marca || ""
 )}
 
 ${
@@ -1031,19 +1042,19 @@ escapar(produto.codigo)
 function abrirLogin(){
 
 document.getElementById(
-"loginOverlay"
+    "loginOverlay"
 ).style.display =
 "block";
 
 
 document.getElementById(
-"senhaAdmin"
+    "senhaAdmin"
 ).value =
 "";
 
 
 document.getElementById(
-"loginErro"
+    "loginErro"
 ).style.display =
 "none";
 
@@ -1051,7 +1062,7 @@ document.getElementById(
 setTimeout(() => {
 
 document.getElementById(
-"senhaAdmin"
+    "senhaAdmin"
 ).focus();
 
 },100);
@@ -1062,7 +1073,7 @@ document.getElementById(
 function fecharLogin(){
 
 document.getElementById(
-"loginOverlay"
+    "loginOverlay"
 ).style.display =
 "none";
 
@@ -1078,13 +1089,13 @@ async function entrarAdmin(){
 
 const senha =
 document.getElementById(
-"senhaAdmin"
+    "senhaAdmin"
 ).value;
 
 
 const erro =
 document.getElementById(
-"loginErro"
+    "loginErro"
 );
 
 
@@ -1101,20 +1112,10 @@ return;
 }
 
 
-/*
-   Cria o Authorization Basic.
-
-   Usuário:
-   admin
-
-   Senha:
-   senha digitada
-*/
-
 const auth =
 "Basic " +
 btoa(
-"admin:" + senha
+    "admin:" + senha
 );
 
 
@@ -1123,16 +1124,16 @@ try{
 
 const resposta =
 await fetch(
-"/api/admin/teste",
-{
+    "/api/admin/teste",
+    {
 
-method:"GET",
+        method:"GET",
 
-headers:{
-"Authorization":auth
-}
+        headers:{
+            "Authorization":auth
+        }
 
-}
+    }
 );
 
 
@@ -1150,16 +1151,11 @@ return;
 }
 
 
-/*
-   Senha correta.
-*/
-
 adminAuth =
 auth;
 
 
 fecharLogin();
-
 
 abrirAdmin();
 
@@ -1194,7 +1190,7 @@ return;
 
 
 document.getElementById(
-"adminOverlay"
+    "adminOverlay"
 ).style.display =
 "block";
 
@@ -1207,7 +1203,7 @@ mostrarListaAdmin();
 function fecharAdmin(){
 
 document.getElementById(
-"adminOverlay"
+    "adminOverlay"
 ).style.display =
 "none";
 
@@ -1223,7 +1219,7 @@ function mostrarListaAdmin(){
 
 const lista =
 document.getElementById(
-"listaAdmin"
+    "listaAdmin"
 );
 
 
@@ -1256,7 +1252,7 @@ produtos.map(produto => `
 <strong>
 
 ${escapar(
-produto.nome
+    produto.nome
 )}
 
 </strong>
@@ -1265,8 +1261,8 @@ produto.nome
 <div class="muted">
 
 ${escapar(
-produto.categoria ||
-"Sem categoria"
+    produto.categoria ||
+    "Sem categoria"
 )}
 
 </div>
@@ -1278,8 +1274,10 @@ produto.categoria ||
 <div class="admin-actions">
 
 
+<!-- EDITAR -->
+
 <button
-onclick="editarProduto(${produto.id})"
+    onclick="editarProduto(${produto.id})"
 >
 
 ✏️ Editar
@@ -1288,9 +1286,24 @@ onclick="editarProduto(${produto.id})"
 
 
 
+<!-- NOVO BOTÃO DUPLICAR -->
+
 <button
-class="danger"
-onclick="excluirProduto(${produto.id})"
+    class="duplicate"
+    onclick="duplicarProduto(${produto.id})"
+>
+
+📋 Duplicar
+
+</button>
+
+
+
+<!-- EXCLUIR -->
+
+<button
+    class="danger"
+    onclick="excluirProduto(${produto.id})"
 >
 
 🗑️ Excluir
@@ -1333,19 +1346,126 @@ imagem:""
 
 
 /* =====================================================
+   EDITAR PRODUTO
+===================================================== */
+
+function editarProduto(id){
+
+if(!adminAuth){
+
+abrirLogin();
+
+return;
+
+}
+
+
+const produto =
+produtos.find(
+    p => p.id == id
+);
+
+
+if(produto){
+
+abrirFormulario(produto);
+
+}
+
+}
+
+
+
+/* =====================================================
+   DUPLICAR PRODUTO
+===================================================== */
+
+function duplicarProduto(id){
+
+if(!adminAuth){
+
+abrirLogin();
+
+return;
+
+}
+
+
+const produto =
+produtos.find(
+    p => p.id == id
+);
+
+
+if(!produto){
+
+return;
+
+}
+
+
+/*
+   IMPORTANTE:
+
+   Não copiamos o ID.
+
+   O novo produto precisa receber
+   um novo ID do banco de dados.
+
+   Todas as outras informações são
+   copiadas, inclusive a imagem.
+*/
+
+
+abrirFormulario({
+
+id:"",
+
+nome:produto.nome,
+
+codigo:produto.codigo,
+
+categoria:produto.categoria,
+
+marca:produto.marca,
+
+descricao:produto.descricao,
+
+especificacoes:produto.especificacoes,
+
+imagem:produto.imagem
+
+});
+
+
+/*
+   Alteramos o título para deixar
+   claro que estamos criando uma cópia.
+*/
+
+document.getElementById(
+    "tituloFormulario"
+).textContent =
+"Duplicar produto";
+
+}
+
+
+
+/* =====================================================
    ABRIR FORMULÁRIO
 ===================================================== */
 
 function abrirFormulario(produto){
 
 document.getElementById(
-"produtoId"
+    "produtoId"
 ).value =
 produto.id;
 
 
 document.getElementById(
-"tituloFormulario"
+    "tituloFormulario"
 ).textContent =
 
 produto.id
@@ -1356,56 +1476,56 @@ produto.id
 
 
 document.getElementById(
-"nome"
+    "nome"
 ).value =
 produto.nome ||
 "";
 
 
 document.getElementById(
-"codigo"
+    "codigo"
 ).value =
 produto.codigo ||
 "";
 
 
 document.getElementById(
-"categoria"
+    "categoria"
 ).value =
 produto.categoria ||
 "";
 
 
 document.getElementById(
-"marca"
+    "marca"
 ).value =
 produto.marca ||
 "";
 
 
 document.getElementById(
-"descricao"
+    "descricao"
 ).value =
 produto.descricao ||
 "";
 
 
 document.getElementById(
-"especificacoes"
+    "especificacoes"
 ).value =
 produto.especificacoes ||
 "";
 
 
 document.getElementById(
-"imagem"
+    "imagem"
 ).value =
 produto.imagem ||
 "";
 
 
 document.getElementById(
-"formOverlay"
+    "formOverlay"
 ).style.display =
 "block";
 
@@ -1415,7 +1535,7 @@ document.getElementById(
 function fecharFormulario(){
 
 document.getElementById(
-"formOverlay"
+    "formOverlay"
 ).style.display =
 "none";
 
@@ -1442,7 +1562,7 @@ return;
 
 const id =
 document.getElementById(
-"produtoId"
+    "produtoId"
 ).value;
 
 
@@ -1450,37 +1570,37 @@ const produto = {
 
 nome:
 document.getElementById(
-"nome"
+    "nome"
 ).value.trim(),
 
 codigo:
 document.getElementById(
-"codigo"
+    "codigo"
 ).value.trim(),
 
 categoria:
 document.getElementById(
-"categoria"
+    "categoria"
 ).value.trim(),
 
 marca:
 document.getElementById(
-"marca"
+    "marca"
 ).value.trim(),
 
 descricao:
 document.getElementById(
-"descricao"
+    "descricao"
 ).value.trim(),
 
 especificacoes:
 document.getElementById(
-"especificacoes"
+    "especificacoes"
 ).value.trim(),
 
 imagem:
 document.getElementById(
-"imagem"
+    "imagem"
 ).value.trim()
 
 };
@@ -1490,7 +1610,7 @@ document.getElementById(
 if(!produto.nome){
 
 alert(
-"Informe o nome do produto."
+    "Informe o nome do produto."
 );
 
 return;
@@ -1555,7 +1675,7 @@ abrirLogin();
 
 
 alert(
-"Sua sessão expirou. Digite a senha novamente."
+    "Sua sessão expirou. Digite a senha novamente."
 );
 
 
@@ -1583,40 +1703,7 @@ mostrarListaAdmin();
 }catch(error){
 
 alert(
-"Erro ao salvar produto."
-);
-
-}
-
-}
-
-
-
-/* =====================================================
-   EDITAR
-===================================================== */
-
-function editarProduto(id){
-
-if(!adminAuth){
-
-abrirLogin();
-
-return;
-
-}
-
-
-const produto =
-produtos.find(
-p => p.id == id
-);
-
-
-if(produto){
-
-abrirFormulario(
-produto
+    "Erro ao salvar produto."
 );
 
 }
@@ -1641,7 +1728,7 @@ return;
 
 
 if(!confirm(
-"Tem certeza que deseja excluir este produto?"
+    "Tem certeza que deseja excluir este produto?"
 )){
 
 return;
@@ -1688,7 +1775,7 @@ abrirLogin();
 
 
 alert(
-"Sua sessão expirou. Digite a senha novamente."
+    "Sua sessão expirou. Digite a senha novamente."
 );
 
 
@@ -1713,7 +1800,7 @@ mostrarListaAdmin();
 }catch(error){
 
 alert(
-"Erro ao excluir produto."
+    "Erro ao excluir produto."
 );
 
 }
@@ -1723,14 +1810,14 @@ alert(
 
 
 /* =====================================================
-   DETALHES
+   DETALHES DO PRODUTO
 ===================================================== */
 
 function abrirDetalhes(id){
 
 const produto =
 produtos.find(
-p => p.id == id
+    p => p.id == id
 );
 
 
@@ -1787,7 +1874,7 @@ ${escapar(valor)}
 
 
 document.getElementById(
-"detalhes"
+    "detalhes"
 ).innerHTML = `
 
 <div class="modal-header">
@@ -1795,14 +1882,14 @@ document.getElementById(
 <h2>
 
 ${escapar(
-produto.nome
+    produto.nome
 )}
 
 </h2>
 
 
 <button
-onclick="fecharDetalhes()"
+    onclick="fecharDetalhes()"
 >
 
 ✕
@@ -1819,9 +1906,9 @@ produto.imagem
 ?
 
 `<img
-class="detail-image"
-src="${escapar(produto.imagem)}"
-alt="${escapar(produto.nome)}"
+    class="detail-image"
+    src="${escapar(produto.imagem)}"
+    alt="${escapar(produto.nome)}"
 >`
 
 :
@@ -1835,8 +1922,8 @@ alt="${escapar(produto.nome)}"
 <p class="muted">
 
 ${escapar(
-produto.categoria ||
-""
+    produto.categoria ||
+    ""
 )}
 
 
@@ -1879,8 +1966,8 @@ Descrição
 <p>
 
 ${escapar(
-produto.descricao ||
-"Nenhuma descrição cadastrada."
+    produto.descricao ||
+    "Nenhuma descrição cadastrada."
 )}
 
 </p>
@@ -1922,7 +2009,7 @@ ${tabela}
 
 
 document.getElementById(
-"detalhesOverlay"
+    "detalhesOverlay"
 ).style.display =
 "block";
 
@@ -1932,7 +2019,7 @@ document.getElementById(
 function fecharDetalhes(){
 
 document.getElementById(
-"detalhesOverlay"
+    "detalhesOverlay"
 ).style.display =
 "none";
 
@@ -1949,4 +2036,5 @@ carregarProdutos();
 </script>
 
 </body>
+
 </html>
