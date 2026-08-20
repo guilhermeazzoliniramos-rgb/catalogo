@@ -53,6 +53,11 @@ button{
     cursor:pointer;
 }
 
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
 .admin{
     background:white;
     color:#20262d;
@@ -66,6 +71,11 @@ button{
 .danger{
     background:#ffe0e0;
     color:#a00000;
+}
+
+.secondary{
+    background:#e9edf0;
+    color:#20262d;
 }
 
 .container{
@@ -204,6 +214,11 @@ button{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:10px;
+}
+
+.modal-header h2{
+    margin:0;
 }
 
 .row{
@@ -241,6 +256,7 @@ button{
     display:flex;
     justify-content:flex-end;
     gap:8px;
+    flex-wrap:wrap;
 }
 
 .admin-item{
@@ -305,6 +321,121 @@ button{
     color:#174a8b;
 }
 
+
+/* =====================================================
+   NOVO SISTEMA DE ABAS
+===================================================== */
+
+.form-modal{
+    max-width:1400px;
+}
+
+.form-tabs-info{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin:15px 0;
+    flex-wrap:wrap;
+}
+
+.form-tabs-info small{
+    color:#69747d;
+}
+
+.form-tabs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.product-tab{
+    border:1px solid #dce1e5;
+    border-radius:12px;
+    padding:18px;
+    background:#fafbfc;
+    min-width:0;
+}
+
+.product-tab-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.product-tab-title{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.tab-badge{
+    background:#20262d;
+    color:white;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.close-tab{
+    background:#ffe0e0;
+    color:#a00000;
+    padding:7px 10px;
+}
+
+.form-bottom-bar{
+    position:sticky;
+    bottom:0;
+    margin-top:18px;
+    padding-top:14px;
+    background:white;
+    border-top:1px solid #e0e4e8;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.form-bottom-left,
+.form-bottom-right{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.copy-tab-button{
+    background:#eef5ff;
+    color:#174a8b;
+}
+
+.save-all-button{
+    background:#e86b20;
+    color:white;
+}
+
+.tab-status{
+    font-size:12px;
+    color:#69747d;
+}
+
+.preview-code{
+    background:#eef1f3;
+    border-radius:6px;
+    padding:3px 6px;
+    font-family:monospace;
+}
+
+@media(max-width:1000px){
+
+    .form-tabs{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
 @media(max-width:650px){
 
     header{
@@ -321,6 +452,15 @@ button{
 
     .admin-item{
         flex-direction:column;
+    }
+
+    .form-tabs{
+        grid-template-columns:1fr;
+    }
+
+    .modal{
+        margin:10px auto;
+        padding:18px;
     }
 
 }
@@ -550,7 +690,7 @@ Administração
     class="overlay"
 >
 
-<div class="modal">
+<div class="modal form-modal">
 
 <div class="modal-header">
 
@@ -568,143 +708,67 @@ Novo produto
 </div>
 
 
-<input
-    type="hidden"
-    id="produtoId"
+<div class="form-tabs-info">
+
+<small id="contadorAbas">
+1 de 3 abas
+</small>
+
+<small>
+Produtos semelhantes podem ser criados copiando uma aba.
+</small>
+
+</div>
+
+
+<div
+    id="formTabs"
+    class="form-tabs"
+></div>
+
+
+
+<div class="form-bottom-bar">
+
+<div class="form-bottom-left">
+
+<span
+    id="statusForm"
+    class="tab-status"
 >
-
-
-<br>
-
-
-<div class="row">
-
-
-<div class="field">
-
-<label>
-Nome do produto *
-</label>
-
-<input
-    id="nome"
-    placeholder="Ex.: Primer PU"
->
+Pronto para cadastrar
+</span>
 
 </div>
 
 
-<div class="field">
-
-<label>
-Código
-</label>
-
-<input
-    id="codigo"
-    placeholder="Ex.: PR-001"
->
-
-</div>
-
-</div>
-
-
-
-<div class="row">
-
-
-<div class="field">
-
-<label>
-Categoria
-</label>
-
-<input
-    id="categoria"
-    placeholder="Ex.: Pintura Automotiva"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-Marca
-</label>
-
-<input
-    id="marca"
->
-
-</div>
-
-</div>
-
-
-
-<div class="field">
-
-<label>
-Descrição
-</label>
-
-<textarea
-    id="descricao"
-></textarea>
-
-</div>
-
-
-
-<div class="field">
-
-<label>
-Especificações
-</label>
-
-<textarea
-    id="especificacoes"
-    placeholder="Volume: 900 ml
-Acabamento: Fosco
-Aplicação: Automotiva"
-></textarea>
-
-</div>
-
-
-
-<div class="field">
-
-<label>
-URL da imagem
-</label>
-
-<input
-    id="imagem"
-    placeholder="https://..."
->
-
-</div>
-
-
-
-<div class="actions">
+<div class="form-bottom-right">
 
 <button
+    class="copy-tab-button"
+    id="copiarAbaButton"
+    onclick="copiarAbaAtual()"
+>
+＋ Copiar aba
+</button>
+
+
+<button
+    class="save-all-button"
+    onclick="salvarTodosProdutos()"
+>
+💾 Salvar todos
+</button>
+
+
+<button
+    class="secondary"
     onclick="fecharFormulario()"
 >
 Cancelar
 </button>
 
-
-<button
-    class="primary"
-    onclick="salvarProduto()"
->
-Salvar produto
-</button>
+</div>
 
 </div>
 
@@ -745,6 +809,18 @@ let categoriaAtual = "Todos";
 
 let adminAuth = null;
 
+
+/*
+   Cada aba representa um produto.
+   Máximo: 3 abas.
+*/
+let abasFormulario = [];
+
+
+/*
+   ID da aba atualmente selecionada.
+*/
+let abaAtual = 0;
 
 
 /* =====================================================
@@ -1265,6 +1341,15 @@ ${escapar(
     "Sem categoria"
 )}
 
+${
+produto.codigo
+?
+" • Código: " +
+escapar(produto.codigo)
+:
+""
+}
+
 </div>
 
 </div>
@@ -1273,8 +1358,6 @@ ${escapar(
 
 <div class="admin-actions">
 
-
-<!-- EDITAR -->
 
 <button
     onclick="editarProduto(${produto.id})"
@@ -1286,8 +1369,6 @@ ${escapar(
 
 
 
-<!-- NOVO BOTÃO DUPLICAR -->
-
 <button
     class="duplicate"
     onclick="duplicarProduto(${produto.id})"
@@ -1298,8 +1379,6 @@ ${escapar(
 </button>
 
 
-
-<!-- EXCLUIR -->
 
 <button
     class="danger"
@@ -1328,18 +1407,177 @@ ${escapar(
 
 function novoProduto(){
 
-abrirFormulario({
+abasFormulario = [
+
+criarProdutoVazio()
+
+];
+
+abaAtual = 0;
+
+abrirFormulario();
+
+}
+
+
+
+/* =====================================================
+   CRIAR OBJETO VAZIO
+===================================================== */
+
+function criarProdutoVazio(){
+
+return {
 
 id:"",
+
 nome:"",
+
 codigo:"",
+
 categoria:"",
+
 marca:"",
+
 descricao:"",
+
 especificacoes:"",
+
 imagem:""
 
-});
+};
+
+}
+
+
+
+/* =====================================================
+   CLONAR PRODUTO
+===================================================== */
+
+function clonarProduto(produto){
+
+return {
+
+id:"",
+
+nome:produto.nome || "",
+
+codigo:produto.codigo || "",
+
+categoria:produto.categoria || "",
+
+marca:produto.marca || "",
+
+descricao:produto.descricao || "",
+
+especificacoes:produto.especificacoes || "",
+
+imagem:produto.imagem || ""
+
+};
+
+}
+
+
+
+/* =====================================================
+   GERAR PRÓXIMO CÓDIGO
+===================================================== */
+
+/*
+
+Exemplos:
+
+050 -> 051
+051 -> 052
+099 -> 100
+
+PR-050 -> PR-051
+PR-099 -> PR-100
+
+Também procura os códigos já existentes
+para não criar duplicados.
+*/
+
+function gerarProximoCodigo(codigoBase=""){
+
+const todosCodigos = [
+
+...produtos.map(p => String(p.codigo || "")),
+
+...abasFormulario.map(p => String(p.codigo || ""))
+
+].filter(Boolean);
+
+
+
+const texto =
+String(codigoBase || "").trim();
+
+
+
+const match =
+texto.match(/^(.*?)(\d+)$/);
+
+
+
+if(!match){
+
+/*
+   Se o código não termina em número,
+   não temos como descobrir a sequência.
+*/
+
+return texto;
+
+}
+
+
+
+const prefixo =
+match[1];
+
+
+const numeroOriginal =
+match[2];
+
+
+let numero =
+parseInt(numeroOriginal,10) + 1;
+
+
+const largura =
+numeroOriginal.length;
+
+
+let candidato;
+
+
+
+do{
+
+candidato =
+prefixo +
+String(numero).padStart(
+    largura,
+    "0"
+);
+
+numero++;
+
+}
+while(
+    todosCodigos.some(
+        codigo =>
+        codigo.toLowerCase() ===
+        candidato.toLowerCase()
+    )
+);
+
+
+
+return candidato;
 
 }
 
@@ -1366,18 +1604,47 @@ produtos.find(
 );
 
 
-if(produto){
+if(!produto){
 
-abrirFormulario(produto);
+return;
 
 }
+
+
+abasFormulario = [
+
+{
+
+id:produto.id,
+
+nome:produto.nome || "",
+
+codigo:produto.codigo || "",
+
+categoria:produto.categoria || "",
+
+marca:produto.marca || "",
+
+descricao:produto.descricao || "",
+
+especificacoes:produto.especificacoes || "",
+
+imagem:produto.imagem || ""
+
+}
+
+];
+
+abaAtual = 0;
+
+abrirFormulario();
 
 }
 
 
 
 /* =====================================================
-   DUPLICAR PRODUTO
+   DUPLICAR PRODUTO PELA LISTA
 ===================================================== */
 
 function duplicarProduto(id){
@@ -1404,49 +1671,487 @@ return;
 }
 
 
+
+const novo =
+clonarProduto(produto);
+
+
 /*
-   IMPORTANTE:
-
-   Não copiamos o ID.
-
-   O novo produto precisa receber
-   um novo ID do banco de dados.
-
-   Todas as outras informações são
-   copiadas, inclusive a imagem.
+   Aqui já aplicamos o próximo número.
 */
+novo.codigo =
+gerarProximoCodigo(
+    produto.codigo
+);
 
 
-abrirFormulario({
+abasFormulario = [novo];
 
-id:"",
+abaAtual = 0;
 
-nome:produto.nome,
+abrirFormulario();
 
-codigo:produto.codigo,
+}
 
-categoria:produto.categoria,
 
-marca:produto.marca,
 
-descricao:produto.descricao,
+/* =====================================================
+   COPIAR ABA ATUAL
+===================================================== */
 
-especificacoes:produto.especificacoes,
+function copiarAbaAtual(){
 
-imagem:produto.imagem
+if(abasFormulario.length >= 3){
+
+return;
+
+}
+
+
+salvarDadosAbaAtual();
+
+
+const origem =
+abasFormulario[abaAtual];
+
+
+const novaAba =
+clonarProduto(origem);
+
+
+/*
+   Incrementa o código da aba copiada.
+*/
+novaAba.codigo =
+gerarProximoCodigo(
+    origem.codigo
+);
+
+
+abasFormulario.push(novaAba);
+
+abaAtual =
+abasFormulario.length - 1;
+
+
+renderizarAbas();
+
+}
+
+
+
+/* =====================================================
+   REMOVER ABA
+===================================================== */
+
+function removerAba(index){
+
+if(abasFormulario.length <= 1){
+
+return;
+
+}
+
+
+salvarDadosAbaAtual();
+
+
+abasFormulario.splice(index,1);
+
+
+if(abaAtual >= abasFormulario.length){
+
+abaAtual =
+abasFormulario.length - 1;
+
+}
+
+
+renderizarAbas();
+
+}
+
+
+
+/* =====================================================
+   SELECIONAR ABA
+===================================================== */
+
+function selecionarAba(index){
+
+salvarDadosAbaAtual();
+
+abaAtual = index;
+
+renderizarAbas();
+
+}
+
+
+
+/* =====================================================
+   LER DADOS DO FORMULÁRIO
+===================================================== */
+
+function lerDadosFormulario(elemento){
+
+return {
+
+id:
+elemento.querySelector(".produto-id").value,
+
+nome:
+elemento.querySelector(".produto-nome").value.trim(),
+
+codigo:
+elemento.querySelector(".produto-codigo").value.trim(),
+
+categoria:
+elemento.querySelector(".produto-categoria").value.trim(),
+
+marca:
+elemento.querySelector(".produto-marca").value.trim(),
+
+descricao:
+elemento.querySelector(".produto-descricao").value.trim(),
+
+especificacoes:
+elemento.querySelector(".produto-especificacoes").value.trim(),
+
+imagem:
+elemento.querySelector(".produto-imagem").value.trim()
+
+};
+
+}
+
+
+
+/* =====================================================
+   SALVAR DADOS DA ABA ATUAL
+===================================================== */
+
+function salvarDadosAbaAtual(){
+
+const abas =
+document.querySelectorAll(
+    ".product-tab"
+);
+
+
+if(!abas.length){
+
+return;
+
+}
+
+
+const elemento =
+abas[abaAtual];
+
+
+if(!elemento){
+
+return;
+
+}
+
+
+abasFormulario[abaAtual] =
+lerDadosFormulario(elemento);
+
+}
+
+
+
+/* =====================================================
+   RENDERIZAR ABAS
+===================================================== */
+
+function renderizarAbas(){
+
+const container =
+document.getElementById(
+    "formTabs"
+);
+
+
+container.innerHTML =
+abasFormulario.map(
+    (produto,index) => `
+
+<div
+    class="product-tab"
+    data-index="${index}"
+>
+
+<div class="product-tab-header">
+
+<div>
+
+<span class="tab-badge">
+Produto ${index + 1}
+</span>
+
+
+<div class="product-tab-title">
+
+${
+produto.id
+?
+"Editar produto"
+:
+"Novo produto"
+}
+
+</div>
+
+</div>
+
+
+${
+abasFormulario.length > 1
+?
+
+`<button
+    class="close-tab"
+    onclick="removerAba(${index})"
+    title="Fechar esta aba"
+>
+✕
+</button>`
+
+:
+
+""
+
+}
+
+</div>
+
+
+
+<input
+    type="hidden"
+    class="produto-id"
+    value="${escapar(produto.id)}"
+>
+
+
+
+<div class="field">
+
+<label>
+Nome do produto *
+</label>
+
+<input
+    class="produto-nome"
+    value="${escapar(produto.nome)}"
+    placeholder="Ex.: Primer PU"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Código
+</label>
+
+<input
+    class="produto-codigo"
+    value="${escapar(produto.codigo)}"
+    placeholder="Ex.: 050"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Categoria
+</label>
+
+<input
+    class="produto-categoria"
+    value="${escapar(produto.categoria)}"
+    placeholder="Ex.: Pintura Automotiva"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Marca
+</label>
+
+<input
+    class="produto-marca"
+    value="${escapar(produto.marca)}"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Descrição
+</label>
+
+<textarea
+    class="produto-descricao"
+    placeholder="Descrição do produto..."
+>${escapar(produto.descricao)}</textarea>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Especificações
+</label>
+
+<textarea
+    class="produto-especificacoes"
+    placeholder="Volume: 900 ml
+Acabamento: Fosco
+Aplicação: Automotiva"
+>${escapar(produto.especificacoes)}</textarea>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+URL da imagem
+</label>
+
+<input
+    class="produto-imagem"
+    value="${escapar(produto.imagem)}"
+    placeholder="https://..."
+>
+
+</div>
+
+
+
+<div class="actions">
+
+<button
+    class="secondary"
+    onclick="salvarProdutoDaAba(${index})"
+>
+💾 Salvar
+</button>
+
+</div>
+
+</div>
+
+`
+).join("");
+
+
+document.getElementById(
+    "contadorAbas"
+).textContent =
+
+`${abasFormulario.length} de 3 abas`;
+
+
+const copiar =
+document.getElementById(
+    "copiarAbaButton"
+);
+
+
+copiar.disabled =
+abasFormulario.length >= 3;
+
+
+const titulo =
+document.getElementById(
+    "tituloFormulario"
+);
+
+
+if(abasFormulario.length === 1){
+
+titulo.textContent =
+
+abasFormulario[0].id
+?
+"Editar produto"
+:
+"Novo produto";
+
+}else{
+
+titulo.textContent =
+"Cadastro múltiplo de produtos";
+
+}
+
+
+document.getElementById(
+    "statusForm"
+).textContent =
+
+abasFormulario.length === 3
+?
+"Limite de 3 produtos simultâneos atingido."
+:
+"Você pode copiar esta aba para criar outro produto.";
+
+
+adicionarEventosAutoSalvamento();
+
+}
+
+
+
+/* =====================================================
+   AUTO SALVAMENTO NA MEMÓRIA
+===================================================== */
+
+function adicionarEventosAutoSalvamento(){
+
+document
+.querySelectorAll(".product-tab")
+.forEach((elemento,index) => {
+
+elemento
+.querySelectorAll("input, textarea")
+.forEach(campo => {
+
+campo.addEventListener(
+    "input",
+    () => {
+
+        abasFormulario[index] =
+        lerDadosFormulario(elemento);
+
+    }
+);
 
 });
 
-
-/*
-   Alteramos o título para deixar
-   claro que estamos criando uma cópia.
-*/
-
-document.getElementById(
-    "tituloFormulario"
-).textContent =
-"Duplicar produto";
+});
 
 }
 
@@ -1456,72 +2161,9 @@ document.getElementById(
    ABRIR FORMULÁRIO
 ===================================================== */
 
-function abrirFormulario(produto){
+function abrirFormulario(){
 
-document.getElementById(
-    "produtoId"
-).value =
-produto.id;
-
-
-document.getElementById(
-    "tituloFormulario"
-).textContent =
-
-produto.id
-?
-"Editar produto"
-:
-"Novo produto";
-
-
-document.getElementById(
-    "nome"
-).value =
-produto.nome ||
-"";
-
-
-document.getElementById(
-    "codigo"
-).value =
-produto.codigo ||
-"";
-
-
-document.getElementById(
-    "categoria"
-).value =
-produto.categoria ||
-"";
-
-
-document.getElementById(
-    "marca"
-).value =
-produto.marca ||
-"";
-
-
-document.getElementById(
-    "descricao"
-).value =
-produto.descricao ||
-"";
-
-
-document.getElementById(
-    "especificacoes"
-).value =
-produto.especificacoes ||
-"";
-
-
-document.getElementById(
-    "imagem"
-).value =
-produto.imagem ||
-"";
+renderizarAbas();
 
 
 document.getElementById(
@@ -1532,6 +2174,11 @@ document.getElementById(
 }
 
 
+
+/* =====================================================
+   FECHAR FORMULÁRIO
+===================================================== */
+
 function fecharFormulario(){
 
 document.getElementById(
@@ -1539,15 +2186,147 @@ document.getElementById(
 ).style.display =
 "none";
 
+
+abasFormulario = [];
+
+abaAtual = 0;
+
 }
 
 
 
 /* =====================================================
-   SALVAR PRODUTO
+   SALVAR PRODUTO DE UMA ABA
 ===================================================== */
 
-async function salvarProduto(){
+async function salvarProdutoDaAba(index){
+
+salvarDadosAbaAtual();
+
+
+const produto =
+abasFormulario[index];
+
+
+if(!produto){
+
+return;
+
+}
+
+
+const sucesso =
+await enviarProduto(produto);
+
+
+if(sucesso){
+
+abasFormulario.splice(index,1);
+
+
+if(abasFormulario.length === 0){
+
+fecharFormulario();
+
+}else{
+
+if(abaAtual >= abasFormulario.length){
+
+abaAtual =
+abasFormulario.length - 1;
+
+}
+
+renderizarAbas();
+
+}
+
+}
+
+}
+
+
+
+/* =====================================================
+   SALVAR TODOS
+===================================================== */
+
+async function salvarTodosProdutos(){
+
+salvarDadosAbaAtual();
+
+
+if(!abasFormulario.length){
+
+return;
+
+}
+
+
+const produtosParaSalvar =
+[...abasFormulario];
+
+
+let sucessos = 0;
+
+
+for(
+    const produto
+    of produtosParaSalvar
+){
+
+const sucesso =
+await enviarProduto(produto);
+
+
+if(sucesso){
+
+sucessos++;
+
+}
+
+}
+
+
+if(sucessos === produtosParaSalvar.length){
+
+fecharFormulario();
+
+await carregarProdutos();
+
+mostrarListaAdmin();
+
+
+alert(
+    sucessos === 1
+    ?
+    "Produto salvo com sucesso!"
+    :
+    `${sucessos} produtos salvos com sucesso!`
+);
+
+}else{
+
+await carregarProdutos();
+
+mostrarListaAdmin();
+
+
+alert(
+    `${sucessos} de ${produtosParaSalvar.length} produtos foram salvos.`
+);
+
+}
+
+}
+
+
+
+/* =====================================================
+   ENVIAR PRODUTO PARA A API
+===================================================== */
+
+async function enviarProduto(produto){
 
 if(!adminAuth){
 
@@ -1555,56 +2334,9 @@ fecharFormulario();
 
 abrirLogin();
 
-return;
+return false;
 
 }
-
-
-const id =
-document.getElementById(
-    "produtoId"
-).value;
-
-
-const produto = {
-
-nome:
-document.getElementById(
-    "nome"
-).value.trim(),
-
-codigo:
-document.getElementById(
-    "codigo"
-).value.trim(),
-
-categoria:
-document.getElementById(
-    "categoria"
-).value.trim(),
-
-marca:
-document.getElementById(
-    "marca"
-).value.trim(),
-
-descricao:
-document.getElementById(
-    "descricao"
-).value.trim(),
-
-especificacoes:
-document.getElementById(
-    "especificacoes"
-).value.trim(),
-
-imagem:
-document.getElementById(
-    "imagem"
-).value.trim()
-
-};
-
 
 
 if(!produto.nome){
@@ -1613,10 +2345,9 @@ alert(
     "Informe o nome do produto."
 );
 
-return;
+return false;
 
 }
-
 
 
 try{
@@ -1625,16 +2356,16 @@ try{
 const resposta =
 await fetch(
 
-id
+produto.id
 ?
-"/api/produtos/" + id
+"/api/produtos/" + produto.id
 :
 "/api/produtos",
 
 {
 
 method:
-id
+produto.id
 ?
 "PUT"
 :
@@ -1651,7 +2382,23 @@ adminAuth
 },
 
 body:
-JSON.stringify(produto)
+JSON.stringify({
+
+nome:produto.nome,
+
+codigo:produto.codigo,
+
+categoria:produto.categoria,
+
+marca:produto.marca,
+
+descricao:produto.descricao,
+
+especificacoes:produto.especificacoes,
+
+imagem:produto.imagem
+
+})
 
 }
 
@@ -1679,7 +2426,7 @@ alert(
 );
 
 
-return;
+return false;
 
 }
 
@@ -1689,22 +2436,16 @@ throw new Error();
 }
 
 
-
-fecharFormulario();
-
-
-await carregarProdutos();
-
-
-mostrarListaAdmin();
-
+return true;
 
 
 }catch(error){
 
 alert(
-    "Erro ao salvar produto."
+    "Erro ao salvar o produto."
 );
+
+return false;
 
 }
 
@@ -1713,104 +2454,7 @@ alert(
 
 
 /* =====================================================
-   EXCLUIR
-===================================================== */
-
-async function excluirProduto(id){
-
-if(!adminAuth){
-
-abrirLogin();
-
-return;
-
-}
-
-
-if(!confirm(
-    "Tem certeza que deseja excluir este produto?"
-)){
-
-return;
-
-}
-
-
-
-try{
-
-
-const resposta =
-await fetch(
-
-"/api/produtos/" + id,
-
-{
-
-method:"DELETE",
-
-headers:{
-
-"Authorization":
-adminAuth
-
-}
-
-}
-
-);
-
-
-
-if(!resposta.ok){
-
-
-if(resposta.status === 401){
-
-adminAuth =
-null;
-
-
-abrirLogin();
-
-
-alert(
-    "Sua sessão expirou. Digite a senha novamente."
-);
-
-
-return;
-
-}
-
-
-throw new Error();
-
-}
-
-
-
-await carregarProdutos();
-
-
-mostrarListaAdmin();
-
-
-
-}catch(error){
-
-alert(
-    "Erro ao excluir produto."
-);
-
-}
-
-}
-
-
-
-/* =====================================================
-   DETALHES DO PRODUTO
+   DETALHES
 ===================================================== */
 
 function abrirDetalhes(id){
@@ -2022,6 +2666,103 @@ document.getElementById(
     "detalhesOverlay"
 ).style.display =
 "none";
+
+}
+
+
+
+/* =====================================================
+   EXCLUIR
+===================================================== */
+
+async function excluirProduto(id){
+
+if(!adminAuth){
+
+abrirLogin();
+
+return;
+
+}
+
+
+if(!confirm(
+    "Tem certeza que deseja excluir este produto?"
+)){
+
+return;
+
+}
+
+
+
+try{
+
+
+const resposta =
+await fetch(
+
+"/api/produtos/" + id,
+
+{
+
+method:"DELETE",
+
+headers:{
+
+"Authorization":
+adminAuth
+
+}
+
+}
+
+);
+
+
+
+if(!resposta.ok){
+
+
+if(resposta.status === 401){
+
+adminAuth =
+null;
+
+
+abrirLogin();
+
+
+alert(
+    "Sua sessão expirou. Digite a senha novamente."
+);
+
+
+return;
+
+}
+
+
+throw new Error();
+
+}
+
+
+
+await carregarProdutos();
+
+
+mostrarListaAdmin();
+
+
+
+}catch(error){
+
+alert(
+    "Erro ao excluir produto."
+);
+
+}
 
 }
 
